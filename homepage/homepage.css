@@ -1,5 +1,22 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #164985;
+    background-color: #152b44;
+}
+
+h1{
+    font-family: "Montserrat Black";
+    font-size: 300%;
+    color: white;
+    float: left;
+    margin: 0;
+    padding-left: 1%;
+}
+
+img{
+    width: 3.5%;
+    height: auto;
+    float: right;
+    margin: 0;
+    padding-right: 74.5%;
 }
