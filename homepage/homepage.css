@@ -9,14 +9,16 @@ h1{
     font-size: 300%;
     color: white;
     float: left;
-    margin-top: 0;
-    margin-left: 0.5%;
+    margin: 0;
+    padding-top: 1%;
+    padding-left: 1.5%;
+    padding-right: 0.25%;
 }
 
 img{
-    width: 3.5%;
+    width: 3%;
     height: auto;
-    float: right;
-    margin-right: 75%;
-    padding-left: 1%;
+    position: relative;
+    margin: 0;
+    padding-top: 1.25%;
 }
