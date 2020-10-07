@@ -6,17 +6,17 @@ body {
 
 h1{
     font-family: "Montserrat Black";
-    font-size: 250%;
+    font-size: 300%;
     color: white;
     float: left;
-    margin: 0;
-    padding-left: 1%;
+    margin-top: 0;
+    margin-left: 0.5%;
 }
 
 img{
-    width: 2.5%;
+    width: 3.5%;
     height: auto;
     float: right;
-    margin: 0;
-    padding-right: 74.5%;
+    margin-right: 75%;
+    padding-left: 1%;
 }
