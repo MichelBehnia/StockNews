@@ -10,12 +10,13 @@ h1{
     color: white;
     float: left;
     margin: 0;
-    padding-right: 0.5%;
-    padding-left: 0.5%;
+    padding-left: 1%;
 }
 
 img{
     width: 2.5%;
     height: auto;
-    position: relative;
+    float: right;
+    margin: 0;
+    padding-right: 74.5%;
 }

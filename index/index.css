@@ -13,9 +13,8 @@ h1{
     color: white;
     float: left;
     margin: 0;
-    margin-left: 34%;
-    margin-top: 20%;
-    padding-right: 1%;
+    padding-left: 30%;
+    padding-top: 20%;
 }
 
 img{
@@ -23,8 +22,8 @@ img{
     height: auto;
     position: relative;
     margin: 0;
-    margin-right: 30%;
-    margin-top: 20%;
+    padding-right: 30%;
+    padding-top: 20%;
 }
 
 p{
