@@ -3,24 +3,17 @@ body {
     padding: 0;
     background-color: #152b44;
     font-family: "Montserrat Black";
+    color: white;
 }
 
 h1{
-    font-size: 300%;
-    color: white;
+    font-family: "Montserrat Medium";
+    font-size: 225%;
     float: left;
     margin: 0;
     padding-top: 0.75%;
     padding-left: 1.5%;
     padding-right: 0.25%;
-}
-
-img{
-    width: 3%;
-    height: auto;
-    position: relative;
-    margin: 0;
-    padding-top: 1%;
 }
 
 .buttonDiv{
