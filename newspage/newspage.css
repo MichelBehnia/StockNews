@@ -50,3 +50,30 @@ h1{
     opacity: 75%;
     border: 1px solid grey;
 }
+
+.arrow {
+    border: solid grey;
+    border-width: 0 6px 6px 0;
+    display: inline-block;
+    padding: 6px;
+}
+
+  .left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+}
+
+  .right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+
+  .leftButtonDiv{
+    border: 1px solid white;
+    float:left
+}
+
+  .rightButtonDiv{
+    border: 1px solid white;
+    float:right
+}
