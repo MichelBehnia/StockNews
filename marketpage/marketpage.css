@@ -33,8 +33,9 @@ h1{
     border-radius: 25px;
 }
 
-.border{
-    border: 2px solid white;
+.header{
+    border: 1px solid grey;
+    background-color: #0C5159;
     overflow: hidden;
     padding-bottom: 0.74%;
     margin-top: 6%;
