@@ -10,7 +10,7 @@ body {
 
 h1{
     font-family: "Montserrat Medium";
-    font-size: 225%;
+    font-size: 200%;
     float: left;
     margin: 0;
     padding-top: 0.25%;
@@ -20,7 +20,7 @@ h1{
 
 .buttonDiv{
     float: right;
-    padding-top: 1.30%;
+    padding-top: 1.15%;
     padding-right: 1.5%;
 }
 
