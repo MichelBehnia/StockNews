@@ -1,7 +1,9 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #152b44;
+    background-image: url("background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
     font-family: "Montserrat Black";
     color: white;
 }
