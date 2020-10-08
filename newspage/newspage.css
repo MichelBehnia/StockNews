@@ -17,7 +17,7 @@ h1{
     padding-right: 0.25%;
 }
 
-img{
+.logo{
     width: 3%;
     height: auto;
     position: relative;
@@ -38,4 +38,15 @@ img{
     padding: 10px 20px;
     border: 2px solid #04070a;
     border-radius: 25px;
+}
+
+.blackBox{
+    width: 70%;
+    height: auto;
+    display: block;
+    margin-top: 2%;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 75%;
+    border: 1px solid grey;
 }
