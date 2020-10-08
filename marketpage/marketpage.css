@@ -18,7 +18,7 @@ h1{
 
 .buttonDiv{
     float: right;
-    padding-top: 2.25%;
+    padding-top: 1.55%;
     padding-right: 1.5%;
 }
 
@@ -29,4 +29,13 @@ h1{
     padding: 10px 20px;
     border: 2px solid #04070a;
     border-radius: 25px;
+}
+
+.border{
+    border: 3px solid white;
+    overflow: hidden;
+    padding-bottom: 0.75%;
+    margin-top: 10%;
+    border-left: 0;
+    border-right: 0;
 }
