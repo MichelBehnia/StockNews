@@ -7,6 +7,27 @@
     </head>
 
     <body>
+        <div class="tab">
+  <button class="tablinks" onclick="openPage(event, 'Stock #1')">Stock #1</button>
+  <button class="tablinks" onclick="openPage(event, 'Stock #2')">Stock #2</button>
+  <button class="tablinks" onclick="openPage(event, 'Stock #3')">Stock #3</button>
+  <button class="tablinks" onclick="openPage(event, 'Stock #4')">Stock #4</button>
+  <button class="tablinks" onclick="openPage(event, 'Stock #5')">Stock #5</button>
+  <button class="tablinks" onclick="openPage(event, 'Stock #6')">Stock #6</button>
+  <button class="tablinks" onclick="openPage(event, 'Stock #6')">Stock #7</button>
+  <button class="tablinks" onclick="openPage(event, 'Stock #6')">Stock #8</button>
+  <button class="tablinks" onclick="openPage(event, 'Stock #6')">Stock #9</button>
+
+</div>
+
+
+
+
+
+
+
+
+
         <div class="header">
             <h1>Market Summary</h1>
 
@@ -14,5 +35,68 @@
                 <a id="button" href="/newspage/newspage.html">Home</a>
             </div>
         </div>
+
+        <div id="Stock #1" class="tabcontent">
+            <h3>Stock #1</h3>
+            <p>Stock #1 is the subject of this page</p>
+          </div>
+          
+          <div id="Stock #2" class="tabcontent">
+            <h3>Stock #2</h3>
+            <p>Stock #2 is the subject of this page.</p> 
+          </div>
+          
+          <div id="Stock #3" class="tabcontent">
+            <h3>Stock #3</h3>
+            <p>Stock #3 is the subject of this page.</p>
+          </div>
+          
+          <div id="Stock #4" class="tabcontent">
+              <h3>Stock #4</h3>
+              <p>Stock #4 is the subject of this page.</p>
+            </div>
+          
+          <div id="Stock #5" class="tabcontent">
+              <h3>Stock #5</h3>
+              <p>Stock #5 is the subject of this page.</p>
+            </div>
+          
+          <div id="Stock #6" class="tabcontent">
+              <h3>Stock #6</h3>
+              <p>Stock #6 is the subject of this page.</p>
+            </div>
+          
+          <div id="Stock #7" class="tabcontent">
+              <h3>Stock #6</h3>
+              <p>Stock #6 is the subject of this page.</p>
+            </div>
+          
+          <div id="Stock #8" class="tabcontent">
+              <h3>Stock #6</h3>
+              <p>Stock #6 is the subject of this page.</p>
+            </div>
+          
+          <div id="Stock #9" class="tabcontent">
+              <h3>Stock #6</h3>
+              <p>Stock #6 is the subject of this page.</p>
+            </div>
+
+
+
+        <script>
+            function openPage(evt, stockNumber) {
+              var i, tabcontent, tablinks;
+              tabcontent = document.getElementsByClassName("tabcontent");
+              for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+              }
+              tablinks = document.getElementsByClassName("tablinks");
+              for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+              }
+              document.getElementById(stockNumber).style.display = "block";
+              evt.currentTarget.className += " active";
+            }
+            </script>
     </body>
 </html>
