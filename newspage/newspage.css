@@ -70,10 +70,12 @@ h1{
 
   .leftButtonDiv{
     border: 1px solid white;
-    float:left
+    float:left;
+    margin-left: 20%;
 }
 
   .rightButtonDiv{
     border: 1px solid white;
-    float:right
+    float:right;
+    margin-right: 20%;
 }
