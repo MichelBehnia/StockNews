@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    background-image: url("background.jpg");
+    background-image: url("newsBackground.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     font-family: "Montserrat Black";
@@ -40,17 +40,6 @@ h1{
     border-radius: 25px;
 }
 
-.blackBox{
-    width: 70%;
-    height: auto;
-    display: block;
-    margin-top: 2%;
-    margin-left: auto;
-    margin-right: auto;
-    opacity: 75%;
-    border: 1px solid grey;
-}
-
 .arrow {
     border: solid grey;
     border-width: 0 6px 6px 0;
@@ -78,4 +67,10 @@ h1{
     border: 1px solid white;
     float:right;
     margin-right: 20%;
+}
+
+.buttonContainer{ 
+    overflow: hidden;
+    border: 1px solid white;
+    margin-top: 21%;
 }
