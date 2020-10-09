@@ -19,7 +19,7 @@ h1{
 }
 
 img{
-    width: 5%;
+    width: 3.9%;
     height: auto;
     position: relative;
     margin: 0;
@@ -30,10 +30,10 @@ img{
 
 p{
     font-family: "Montserrat Medium";
-    font-size: 25px;
+    font-size: 200%;
     color: white;
     text-align: center;
-    padding-top: 7%;
+    padding-top: 3%;
 }
 
 .buttonDiv{
