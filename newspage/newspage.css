@@ -58,19 +58,16 @@ h1{
 }
 
   .leftButtonDiv{
-    border: 1px solid white;
     float:left;
     margin-left: 20%;
 }
 
   .rightButtonDiv{
-    border: 1px solid white;
     float:right;
     margin-right: 20%;
 }
 
 .buttonContainer{ 
     overflow: hidden;
-    border: 1px solid white;
     margin-top: 21%;
 }
