@@ -46,8 +46,7 @@ h1{
 
 .tab{
     overflow: hidden;
-    border: 1px solid #ccc;
-    background-color: #5d677e;
+    background-color: #6d7ea5;
 }
   
 
@@ -60,6 +59,7 @@ h1{
     padding: 30px 74.5px;
     transition: 0.3s;
     font-size: 17px;
+    border: 1px solid #ccc;
 }
   
  
