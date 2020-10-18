@@ -27,7 +27,7 @@ h1{
 #button{
     text-decoration: none;
     color: white;
-    background-color:#164985;
+    background-color:#0A1824;
     padding: 10px 20px;
     border: 2px solid #04070a;
     border-radius: 25px;
@@ -35,7 +35,7 @@ h1{
 
 .header{
     border: 1px solid #ccc;
-    background-color: #0F223D;
+    background-color: #064551;
     overflow: hidden;
     padding-bottom: 0.74%;
     margin-top: 0%;
@@ -46,7 +46,7 @@ h1{
 
 .tab{
     overflow: hidden;
-    background-color: #6d7ea5;
+    background-color: #0F223D;
 }
   
 
@@ -56,10 +56,11 @@ h1{
     border: none;
     outline: none;
     cursor: pointer;
-    padding: 30px 73.65px;
+    padding: 30px 3.03%;
     transition: 0.3s;
     font-size: 17px;
-    border: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    border-left: 1px solid #ccc;
 }
   
  
@@ -78,7 +79,25 @@ h1{
     -webkit-animation: fadeEffect 1s;
     animation: fadeEffect 1s;
 }
-  
+.main {
+  width: 1800px;
+  min-height: 615px; 
+  margin: 0 auto; 
+  display: flex;
+  justify-content: space-between;
+}
+
+.center{
+  display:flex;
+  justify-content:center
+}
+
+.container { overflow: hidden; }
+
+.centerText{
+  text-align: center;
+  vertical-align: top;
+}
 
   @-webkit-keyframes fadeEffect{
     from {opacity: 0;}
