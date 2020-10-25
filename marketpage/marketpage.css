@@ -56,11 +56,16 @@ h1{
     border: none;
     outline: none;
     cursor: pointer;
-    padding: 30px 3.03%;
+    padding: 30px 3.0%;
     transition: 0.3s;
     font-size: 17px;
     border-right: 1px solid #ccc;
     border-left: 1px solid #ccc;
+    width:14.2857142857%;
+    height:100px;
+    text-align:center;
+    line-height:1.1em;
+    font-size:1.1em;
 }
   
  
