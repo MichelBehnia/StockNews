@@ -18,6 +18,7 @@
   </style>
   <title>Stock News</title>
 
+  <script type="text/javascript" src = "marketpage.js"></script>
 
 </head>
 
@@ -42,7 +43,7 @@
   
   <div id = "userInputDiv">
     <input id = "userInputBox" placeholder = "Enter Stock Symbol">
-    <button onclick = "displayStockInfo2();" class = "button">Search</button>
+    <button onclick = "displayStockInfo();" id = "button">Search</button>
   </div>
   
   <table id = stockInformation>
@@ -51,7 +52,11 @@
     </tr>
 
     <tr>
-      <th id = "stockPrice"></th> <th id="stockPriceChange"></th>
+      <th id = "stockPrice"></th> 
+    </tr>
+      
+    <tr>
+      <th id="stockPriceChange"></th>
     </tr>
 
     <tr>
@@ -67,76 +72,7 @@
     </tr>
   </table>
 
-  <script type="text/javascript">
-
-function displayStockInfo2(){
-    let userInput = document.getElementById('userInputBox').value;
-    let apiKey = '2cc11b6f558b90e7e81d410711573cc9';
-    let apiCall =`https://financialmodelingprep.com/api/v3/quote/${userInput}?apikey=${apiKey}`;
-
-    if(userInput !== '' && userInput.length <= 5){
-
-        fetch(apiCall)
-        .then(
-            function(response){
-                if(response){
-                    return response.json();
-                }
-                throw Error('Error!');
-            })
-            .then(
-            function(data){
-                console.log(data);
-                const {name , price , change , priceAvg200, dayHigh , dayLow} = data[0]
-
-                document.getElementById("companyName").innerHTML = name;
-
-                document.getElementById("stockPrice").innerHTML = '$' + price;
-
-                document.getElementById("stockPriceChange").innerHTML = '$' + change;
-
-                document.getElementById("stockPriceAvg200").innerHTML = 'Average Price for past 200 exchanged: $' + priceAvg200;
-
-                document.getElementById("stockDayHigh").innerHTML = 'Todays high: $' + dayHigh;
-
-                document.getElementById("stockDayLow").innerHTML = 'Todays low: $' + dayLow;
-            })
-            .catch(
-            function(error){
-                console.log(error);
-            })
-
-    } else {
-        document.getElementById("stockInformation").innerHTML = 'enter valid input';
-    }
-}
-
-
-
-    function saveUserInput(fetchStockInfo) {
-      let userInput = document.getElementById("userInputBox").value;
-      return userInput;
-      fetchStockInfo();
-    }
-    function fetchStockInfo() {
-      let apiKey = "S7654FSF3ELETV8H";
-      let apiCall = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=NASDAQ&apikey=${apiKey}`;
-
-      fetch(apiCall)
-        .then(
-          function (response) {
-            return response.json();
-          }
-        )
-        .then(
-          function (data) {
-            console.log(data);
-
-            document.getElementById("Info").innerHTML = data;
-          }
-        )
-    }
-  </script>
+ 
 
   <script type="text/javascript">
     function ChangeColor(tableRow, highLight) {
