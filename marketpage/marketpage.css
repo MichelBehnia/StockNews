@@ -103,7 +103,16 @@ h1{
   text-align: center;
   vertical-align: top;
 }
+#userInputDiv{
+  text-align: center;
+  margin-top: 7%;
+}
 
+#userInputBox{
+  height: 35px;
+  width: 25%;
+  font-size: 14pt;
+}
   @-webkit-keyframes fadeEffect{
     from {opacity: 0;}
     to {opacity: 1;}
