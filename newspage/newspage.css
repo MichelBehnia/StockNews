@@ -1,10 +1,11 @@
 body {
     margin: 0;
     padding: 0;
-    background-image: url("newsBackground.jpg");
+    background-image: url("background.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     font-family: "Montserrat Black";
+    color: white;
 }
 
 h1{
@@ -70,4 +71,12 @@ h1{
 .buttonContainer{ 
     overflow: hidden;
     margin-top: 21%;
+}
+
+#newsArticle{
+    border: 3px solid rgb(43, 42, 42);
+    border-radius: 25px;
+    background-color: black;
+    margin: 3%;
+    padding: 1%;   
 }

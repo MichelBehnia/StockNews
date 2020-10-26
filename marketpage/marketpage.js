@@ -6,7 +6,7 @@ function displayStockInfo(){
     if(userInput !== '' && userInput.length <= 5){
 
         fetch(apiCall)
-        .then(
+            .then(
             function(response){
                 if(response){
                     return response.json();

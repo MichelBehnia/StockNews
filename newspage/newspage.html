@@ -4,9 +4,10 @@
 
     <head>
         <title>Stock News</title>
+        <script type="text/javascript" src = "newspage.js"></script>
     </head>
 
-    <body>
+    <body onload = "displayNewsFeed();">
         <a href="../index/index.html">
             <h1>Stock News</h1>
             <img class="logo" src="logo.png" alt="Logo">
@@ -16,18 +17,6 @@
             <a id="button" href="../marketpage/marketpage.html">Market Summary</a>
         </div>
 
-        <div class="buttonContainer">
-            <div class="leftButtonDiv">
-                <a href=#left>
-                    <i class="arrow left"></i>
-                </a>
-            </div>
-    
-            <div class="rightButtonDiv">
-                <a href=#right>
-                    <i class="arrow right"></i>
-                </a>
-            </div>
-        </div>
+        <div id = "newsFeed"></div>    
     </body>
 </html>
