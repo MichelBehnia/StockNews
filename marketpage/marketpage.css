@@ -118,12 +118,13 @@ h1{
 
 #stockInformation{
   margin: auto;
-  padding-top: 0%
+  text-align: left;
+  padding-top: 0%;
 }
 
 #mutualFundInformation{
   margin: auto;
-  padding-top: 0%
+  padding-top: 0%;
 }
   @-webkit-keyframes fadeEffect{
     from {opacity: 0;}

@@ -40,6 +40,13 @@ function displayStockInfo(){
     }
 }
 
+function fadeIn(){
+  document.getElementById("stockInformation").style += '-webkit-animation: fadeEffect 2s;' + 'animation: fadeEffect 2s;';
+  setTimeout(function(){
+    document.getElementById("stockInformation").style -= '-webkit-animation: fadeEffect 2s;' + 'animation: fadeEffect 2s;';
+  } , 2000)
+}
+
 
 function fetchStockInfo() {
     let apiKey = '2cc11b6f558b90e7e81d410711573cc9';
