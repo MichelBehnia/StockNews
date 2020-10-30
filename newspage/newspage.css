@@ -80,3 +80,17 @@ h1{
     margin: 3%;
     padding: 1%;   
 }
+
+#newsFeed{
+    animation: fadeIn 2s;
+}
+
+@keyframes fadeIn{
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
