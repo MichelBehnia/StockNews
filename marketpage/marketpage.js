@@ -86,16 +86,38 @@ function fetchStockInfo() {
             console.log(data);
             const {name , price , change , priceAvg50, priceAvg200 , changesPercentage} = data[0]
 
-            document.getElementById("companyName").innerHTML = name;
+            document.getElementById("companyName2").innerHTML = name;
 
-            document.getElementById("stockPrice").innerHTML = '$' + price;
+            document.getElementById("stockPrice2").innerHTML = '$' + price;
 
-            document.getElementById("stockPriceChange").innerHTML = '$' + change;
+            document.getElementById("stockPriceChange2").innerHTML = '$' + change;
 
-            document.getElementById("stockPriceAvg50").innerHTML = 'Average Price for past 50 exchanged: $' + priceAvg50;
+            document.getElementById("stockPriceAvg502").innerHTML = 'Average Price for past 50 exchanged: $' + priceAvg50;
 
-            document.getElementById("stockPriceAvg200").innerHTML =  'Average Price for past 200 exchanged: $' + priceAvg200;
+            document.getElementById("stockPriceAvg2002").innerHTML =  'Average Price for past 200 exchanged: $' + priceAvg200;
 
-            document.getElementById("changePercentage").innerHTML = 'Change percentage: ' + changesPercentage;
+            document.getElementById("changePercentage2").innerHTML = 'Change percentage: ' + changesPercentage;
         })
   }
+  
+  function ChangeColor(tableRow, highLight) {
+    if (highLight) {
+      tableRow.style.backgroundColor = '#dcfac9';
+    }
+    else {
+      tableRow.style.backgroundColor = '#0E2131';
+    }
+  }
+
+  function ChangeColor2(tableRow, highLight) {
+    if (highLight) {
+      tableRow.style.backgroundColor = '#dcfac9';
+    }
+    else {
+      tableRow.style.backgroundColor = '#064551';
+    }
+  }
+
+
+
+
