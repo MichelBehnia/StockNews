@@ -1,4 +1,4 @@
-function displayStockInfo(){
+function searchStockInfo(){
     let userInput = document.getElementById('userInputBox').value;
     let apiKey = '2cc11b6f558b90e7e81d410711573cc9';
     let apiCall =`https://financialmodelingprep.com/api/v3/quote/${userInput}?apikey=${apiKey}`;
@@ -48,10 +48,9 @@ function fadeIn(){
 }
 
 
-function fetchStockInfo() {
+function fetchStockInfo(stockSymbol) {
     let apiKey = '2cc11b6f558b90e7e81d410711573cc9';
-    let apiCall = `https://financialmodelingprep.com/api/v3/quote/MSFT?apikey=${apiKey}`;
-
+    let apiCall = `https://financialmodelingprep.com/api/v3/quote/${stockSymbol}?apikey=${apiKey}`;
 
     fetch(apiCall)
       .then(
@@ -62,7 +61,7 @@ function fetchStockInfo() {
       .then(
         function(data){
             console.log(data);
-            const {name , price , change , priceAvg200, dayHigh , dayLow} = data[0]
+            const {name , price , change , priceAvg200, dayHigh , dayLow} = data[0];
 
             document.getElementById("companyName").innerHTML = name;
 
@@ -78,9 +77,56 @@ function fetchStockInfo() {
         })
   }
 
+  function displayStockInfo(){
+    let apiKey = '2cc11b6f558b90e7e81d410711573cc9';
+    let apiCall = `https://financialmodelingprep.com/api/v3/quote/MSFT,AAPL,AMZN,GOOGL,FB,JNJ?apikey=${apiKey}`;
+
+    fetch(apiCall)
+    .then(
+      function (response) {
+        return response.json();
+      }
+    )
+    .then(
+      function(data){
+          console.log(data);
+          for(let i = 0; i < data.length; i++){
+            if(i === 0){
+              document.getElementById('Stock1').innerHTML = data[i].symbol;
+              document.getElementById('Stock1Price').innerHTML = data[i].price;
+            }
+
+            if(i === 1){
+              document.getElementById('Stock2').innerHTML = data[i].symbol;
+              document.getElementById('Stock2Price').innerHTML = data[i].price;
+            }
+
+            if(i === 2){
+              document.getElementById('Stock3').innerHTML = data[i].symbol;
+              document.getElementById('Stock3Price').innerHTML = data[i].price;
+            }
+
+            if(i === 3){
+              document.getElementById('Stock4').innerHTML = data[i].symbol;
+              document.getElementById('Stock4Price').innerHTML = data[i].price;
+            }
+
+            if(i === 4){
+              document.getElementById('Stock5').innerHTML = data[i].symbol;
+              document.getElementById('Stock5Price').innerHTML = data[i].price;
+            }
+
+            if(i === 5){
+              document.getElementById('Stock6').innerHTML = data[i].symbol;
+              document.getElementById('Stock6Price').innerHTML = data[i].price;
+            }
+          }
+      })
+  }
+
   function fetchMutualFunds() {
     let apiKey = '2cc11b6f558b90e7e81d410711573cc9';
-    let apiCall = `  https://financialmodelingprep.com/api/v3/quote/VFIAX?apikey=${apiKey}`;
+    let apiCall = `https://financialmodelingprep.com/api/v3/quote/VFIAX?apikey=${apiKey}`;
 
     fetch(apiCall)
       .then(
