@@ -126,6 +126,7 @@ h1{
   margin: auto;
   padding-top: 0%;
 }
+
   @-webkit-keyframes fadeEffect{
     from {opacity: 0;}
     to {opacity: 1;}
