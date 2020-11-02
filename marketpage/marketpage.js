@@ -40,7 +40,7 @@ function searchStockInfo(){
 
                 document.getElementById("outstandingShares").innerHTML = 'Outstanding Shares: ' + sharesOutstanding;
 
-                document.getElementById("marketCap").innerHTML = 'Market Cap: ' + marketCap;
+                document.getElementById("marketCap").innerHTML = 'Market Cap: $' + marketCap;
 
             if(change < 0){
               document.getElementById("stockPriceChange").style.color = 'red';
@@ -105,7 +105,7 @@ function fetchStockInfo(stockSymbol) {
 
             document.getElementById("outstandingShares").innerHTML = 'Outstanding Shares: ' + sharesOutstanding;
 
-            document.getElementById("marketCap").innerHTML = 'Market Cap: ' + marketCap;
+            document.getElementById("marketCap").innerHTML = 'Market Cap: $' + marketCap;
 
             if(change < 0){
               document.getElementById("stockPriceChange").style.color = 'red';
