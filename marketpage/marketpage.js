@@ -16,7 +16,7 @@ function searchStockInfo(){
             .then(
             function(data){
                 console.log(data);
-                const {name , price , change , priceAvg200, dayHigh , dayLow} = data[0]
+                const {name , price , change , priceAvg200, dayHigh , dayLow , earningsAnnouncement , eps , marketCap , volume, avgVolume , sharesOutstanding} = data[0]
 
                 document.getElementById("companyName").innerHTML = name;
 
@@ -29,6 +29,18 @@ function searchStockInfo(){
                 document.getElementById("stockDayHigh").innerHTML = 'Todays high: $' + dayHigh;
 
                 document.getElementById("stockDayLow").innerHTML = 'Todays low: $' + dayLow;
+
+                document.getElementById("volume").innerHTML = 'Volume: ' + volume;
+
+                document.getElementById("avgVolume").innerHTML = 'Daily Average Volume: ' + avgVolume;
+
+                document.getElementById("earningsAnnouncement").innerHTML = 'Most Recent Earnings Announcement: ' + earningsAnnouncement;
+
+                document.getElementById("earningsPerShare").innerHTML = 'Earnings Per Share: ' + eps;
+
+                document.getElementById("outstandingShares").innerHTML = 'Outstanding Shares: ' + sharesOutstanding;
+
+                document.getElementById("marketCap").innerHTML = 'Market Cap: ' + marketCap;
 
             if(change < 0){
               document.getElementById("stockPriceChange").style.color = 'red';
@@ -69,7 +81,7 @@ function fetchStockInfo(stockSymbol) {
       .then(
         function(data){
             console.log(data);
-            const {name , price , change , priceAvg200, dayHigh , dayLow} = data[0];
+            const {name , price , change , priceAvg200, dayHigh , dayLow , earningsAnnouncement , eps , marketCap , volume, avgVolume , sharesOutstanding} = data[0]
 
             document.getElementById("companyName").innerHTML = name;
 
@@ -82,6 +94,18 @@ function fetchStockInfo(stockSymbol) {
             document.getElementById("stockDayHigh").innerHTML = 'Todays high: $' + dayHigh;
 
             document.getElementById("stockDayLow").innerHTML = 'Todays low: $' + dayLow;
+
+            document.getElementById("volume").innerHTML = 'Volume: ' + volume;
+
+            document.getElementById("avgVolume").innerHTML = 'Daily Average Volume: ' + avgVolume;
+
+            document.getElementById("earningsAnnouncement").innerHTML = 'Most Recent Earnings Announcement: ' + earningsAnnouncement;
+
+            document.getElementById("earningsPerShare").innerHTML = 'Earnings Per Share: ' + eps;
+
+            document.getElementById("outstandingShares").innerHTML = 'Outstanding Shares: ' + sharesOutstanding;
+
+            document.getElementById("marketCap").innerHTML = 'Market Cap: ' + marketCap;
 
             if(change < 0){
               document.getElementById("stockPriceChange").style.color = 'red';
