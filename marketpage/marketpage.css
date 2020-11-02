@@ -50,28 +50,31 @@ h1{
     background-color: #0F223D;
 }
   
+.tab button{
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 30px 3.0%;
+  transition: 0.3s;
+  font-size: 17px;
+  border-right: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  width:14.2857142857%;
+  height:100px;
+  text-align:center;
+  line-height:1.1em;
+  font-size:1.1em;
+}
 
-  .tab button{
-    background-color: inherit;
-    float: left;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 30px 3.0%;
-    transition: 0.3s;
-    font-size: 17px;
-    border-right: 1px solid #ccc;
-    border-left: 1px solid #ccc;
-    width:14.2857142857%;
-    height:100px;
-    text-align:center;
-    line-height:1.1em;
-    font-size:1.1em;
+.tablinks{
+  font-family: "Montserrat Black";
+  color: white;
 }
   
- 
-  .tab button:hover{
-    background-color: #ddd;
+.tab button:hover{
+  background-color: #ddd;
 }
   
 
@@ -119,16 +122,12 @@ h1{
 #stockInformation{
   margin: auto;
   text-align: left;
-  padding-top: 0%;
+  padding-top: 1%;
 }
 
 #mutualFundInformation{
   margin: auto;
   padding-top: 0%;
-}
-
-#stockPriceChange{
-
 }
 
   @-webkit-keyframes fadeEffect{

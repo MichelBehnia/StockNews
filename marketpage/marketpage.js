@@ -34,6 +34,7 @@ function searchStockInfo(){
               document.getElementById("stockPriceChange").style.color = 'red';
             } else {
               document.getElementById("stockPriceChange").style.color = 'green';
+              document.getElementById("stockPriceChange").innerHTML = '$ +' + change;
             } 
 
             })
@@ -86,6 +87,7 @@ function fetchStockInfo(stockSymbol) {
               document.getElementById("stockPriceChange").style.color = 'red';
             } else {
               document.getElementById("stockPriceChange").style.color = 'green';
+              document.getElementById("stockPriceChange").innerHTML = '$ +' + change;
             } 
         })
   }
