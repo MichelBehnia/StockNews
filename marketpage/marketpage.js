@@ -67,6 +67,48 @@ function fadeIn(){
   } , 2000)
 }
 
+function searchStockRating(){
+  let userInput = document.getElementById('userInputBox').value;
+  let apiKey = '2cc11b6f558b90e7e81d410711573cc9';
+  const apiCall = `https://financialmodelingprep.com/api/v3/rating/${userInput}?apikey=${apiKey}`;
+
+  fetch(apiCall)
+  .then(
+    function (response) {
+      return response.json();
+    }
+  )
+  .then(
+    function(data){
+        console.log(data);
+        const {ratingScore , ratingRecommendation} = data[0]
+
+        document.getElementById("ratingScore").innerHTML = ratingScore;
+
+        document.getElementById("ratingRecommendation").innerHTML = ratingRecommendation;
+    })
+}
+
+function fetchStockRating(stockSymbol){
+  let apiKey = '2cc11b6f558b90e7e81d410711573cc9';
+  const apiCall = `https://financialmodelingprep.com/api/v3/rating/${stockSymbol}?apikey=${apiKey}`;
+
+  fetch(apiCall)
+  .then(
+    function (response) {
+      return response.json();
+    }
+  )
+  .then(
+    function(data){
+        console.log(data);
+        const {ratingScore , ratingRecommendation} = data[0]
+
+        document.getElementById("ratingScore").innerHTML = 'Overall Stock Rating: ' + ratingScore + '/5';
+
+        document.getElementById("ratingRecommendation").innerHTML = ratingRecommendation;
+    })
+}
 
 function fetchStockInfo(stockSymbol) {
     let apiKey = '2cc11b6f558b90e7e81d410711573cc9';
