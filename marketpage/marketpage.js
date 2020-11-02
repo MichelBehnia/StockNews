@@ -2,14 +2,11 @@ function searchStockInfo(){
     let userInput = document.getElementById('userInputBox').value;
     let apiKey = '2cc11b6f558b90e7e81d410711573cc9';
     let apiCall =`https://financialmodelingprep.com/api/v3/quote/${userInput}?apikey=${apiKey}`;
-
+      
         fetch(apiCall)
             .then(
             function(response){
-                if(response){
-                    return response.json();
-                }
-                throw Error('Error!');
+              return response.json();
             })
             .then(
             function(data){
@@ -47,10 +44,6 @@ function searchStockInfo(){
               document.getElementById("stockPriceChange").innerHTML = '$ +' + change;
             } 
 
-            })
-            .catch(
-            function(error){
-                console.log(error);
             })
 }
 
