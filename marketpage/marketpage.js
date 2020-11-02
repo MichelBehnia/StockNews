@@ -22,13 +22,20 @@ function searchStockInfo(){
 
                 document.getElementById("stockPrice").innerHTML = '$' + price;
 
-                document.getElementById("stockPriceChange").innerHTML = '$' + change;
+                document.getElementById("stockPriceChange").innerHTML = '$ ' + change;
 
                 document.getElementById("stockPriceAvg200").innerHTML = 'Average Price for past 200 exchanged: $' + priceAvg200;
 
                 document.getElementById("stockDayHigh").innerHTML = 'Todays high: $' + dayHigh;
 
                 document.getElementById("stockDayLow").innerHTML = 'Todays low: $' + dayLow;
+
+            if(change < 0){
+              document.getElementById("stockPriceChange").style.color = 'red';
+            } else {
+              document.getElementById("stockPriceChange").style.color = 'green';
+            } 
+
             })
             .catch(
             function(error){
@@ -67,13 +74,19 @@ function fetchStockInfo(stockSymbol) {
 
             document.getElementById("stockPrice").innerHTML = '$' + price;
 
-            document.getElementById("stockPriceChange").innerHTML = '$' + change;
+            document.getElementById("stockPriceChange").innerHTML = '$ ' + change;
 
             document.getElementById("stockPriceAvg200").innerHTML = 'Average Price for past 200 exchanged: $' + priceAvg200;
 
             document.getElementById("stockDayHigh").innerHTML = 'Todays high: $' + dayHigh;
 
             document.getElementById("stockDayLow").innerHTML = 'Todays low: $' + dayLow;
+
+            if(change < 0){
+              document.getElementById("stockPriceChange").style.color = 'red';
+            } else {
+              document.getElementById("stockPriceChange").style.color = 'green';
+            } 
         })
   }
 
