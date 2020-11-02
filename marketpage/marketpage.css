@@ -78,16 +78,17 @@ h1{
 }
   
 
-  .tab button.active{
-    background-color: #ccc;
+.tab button.active{
+  background-color: #ccc;
 }
 
-  .tabcontent{
-    display: none;
-    padding: 6px 12px;
-    -webkit-animation: fadeEffect 1s;
-    animation: fadeEffect 1s;
+.tabcontent{
+  display: none;
+  padding: 6px 12px;
+  -webkit-animation: fadeEffect 1s;
+  animation: fadeEffect 1s;
 }
+
 .main {
   width: 1800px;
   min-height: 615px; 
