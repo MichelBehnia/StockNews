@@ -132,32 +132,32 @@ function fetchStockInfo(stockSymbol) {
           for(let i = 0; i < data.length; i++){
             if(i === 0){
               document.getElementById('Stock1').innerHTML = data[i].symbol;
-              document.getElementById('Stock1Price').innerHTML = data[i].price;
+              document.getElementById('Stock1Price').innerHTML = '$'+data[i].price;
             }
 
             if(i === 1){
               document.getElementById('Stock2').innerHTML = data[i].symbol;
-              document.getElementById('Stock2Price').innerHTML = data[i].price;
+              document.getElementById('Stock2Price').innerHTML = '$'+data[i].price;
             }
 
             if(i === 2){
               document.getElementById('Stock3').innerHTML = data[i].symbol;
-              document.getElementById('Stock3Price').innerHTML = data[i].price;
+              document.getElementById('Stock3Price').innerHTML = '$'+data[i].price;
             }
 
             if(i === 3){
               document.getElementById('Stock4').innerHTML = data[i].symbol;
-              document.getElementById('Stock4Price').innerHTML = data[i].price;
+              document.getElementById('Stock4Price').innerHTML = '$'+data[i].price;
             }
 
             if(i === 4){
               document.getElementById('Stock5').innerHTML = data[i].symbol;
-              document.getElementById('Stock5Price').innerHTML = data[i].price;
+              document.getElementById('Stock5Price').innerHTML = '$'+data[i].price;
             }
 
             if(i === 5){
               document.getElementById('Stock6').innerHTML = data[i].symbol;
-              document.getElementById('Stock6Price').innerHTML = data[i].price;
+              document.getElementById('Stock6Price').innerHTML = '$'+data[i].price;
             }
           }
       })
