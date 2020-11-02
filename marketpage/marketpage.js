@@ -3,8 +3,6 @@ function searchStockInfo(){
     let apiKey = '2cc11b6f558b90e7e81d410711573cc9';
     let apiCall =`https://financialmodelingprep.com/api/v3/quote/${userInput}?apikey=${apiKey}`;
 
-    if(userInput !== '' && userInput.length <= 5){
-
         fetch(apiCall)
             .then(
             function(response){
@@ -54,16 +52,17 @@ function searchStockInfo(){
             function(error){
                 console.log(error);
             })
-
-    } else {
-        document.getElementById("stockInformation").innerHTML = 'enter valid input';
-    }
 }
 
 function fadeIn(){
   document.getElementById("stockInformation").style += '-webkit-animation: fadeEffect 2s;' + 'animation: fadeEffect 2s;';
   setTimeout(function(){
     document.getElementById("stockInformation").style -= '-webkit-animation: fadeEffect 2s;' + 'animation: fadeEffect 2s;';
+  } , 2000)
+
+  document.getElementById("stockRating").style += '-webkit-animation: fadeEffect 2s;' + 'animation: fadeEffect 2s;';
+  setTimeout(function(){
+    document.getElementById("stockRating").style -= '-webkit-animation: fadeEffect 2s;' + 'animation: fadeEffect 2s;';
   } , 2000)
 }
 
@@ -83,9 +82,21 @@ function searchStockRating(){
         console.log(data);
         const {ratingScore , ratingRecommendation} = data[0]
 
-        document.getElementById("ratingScore").innerHTML = ratingScore;
+        document.getElementById("ratingScore").innerHTML = 'Overall Stock Rating: ' + ratingScore + '/5';
 
         document.getElementById("ratingRecommendation").innerHTML = ratingRecommendation;
+
+        if(ratingRecommendation === 'Strong Buy'){
+          document.getElementById("ratingRecommendation").style.color = '#03fc30'
+        }
+
+        if(ratingRecommendation === 'Buy'){
+          document.getElementById("ratingRecommendation").style.color = '#93f542'
+        }
+
+        if(ratingRecommendation === 'Neutral'){
+          document.getElementById("ratingRecommendation").style.color = '#f2f542'
+        }
     })
 }
 
@@ -107,6 +118,18 @@ function fetchStockRating(stockSymbol){
         document.getElementById("ratingScore").innerHTML = 'Overall Stock Rating: ' + ratingScore + '/5';
 
         document.getElementById("ratingRecommendation").innerHTML = ratingRecommendation;
+
+        if(ratingRecommendation === 'Strong Buy'){
+          document.getElementById("ratingRecommendation").style.color = '#03fc30'
+        }
+
+        if(ratingRecommendation === 'Buy'){
+          document.getElementById("ratingRecommendation").style.color = '#93f542'
+        }
+
+        if(ratingRecommendation === 'Neutral'){
+          document.getElementById("ratingRecommendation").style.color = '#f2f542'
+        }
     })
 }
 
