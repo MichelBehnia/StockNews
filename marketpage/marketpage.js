@@ -2,10 +2,8 @@ function searchStockInfo(){
     let userInput = document.getElementById('userInputBox').value;
     let apiKey = '2cc11b6f558b90e7e81d410711573cc9';
     let apiCall =`https://financialmodelingprep.com/api/v3/quote/${userInput}?apikey=${apiKey}`;
-      try{
 
-        if(userInput === '') throw 'Error! Enter Valid Stock Symbol'
-        if(userInput >= 5) throw 'Error! Enter Valid Stock Symbol'
+      try{
 
         fetch(apiCall)
             .then(
@@ -49,8 +47,17 @@ function searchStockInfo(){
             } 
 
             })
+
+            if(userInput === '') document.getElementById("userInputBox").placeholder = 'Error! Please Enter a Valid Stock Symbol';
+            
+            if(isNaN(userInput) == false) document.getElementById("userInputBox").placeholder = 'Error! Please Enter a Valid Stock Symbol';
+
+            if(data.length === 0) document.getElementById("userInputBox").placeholder = 'Error! Please Enter a Valid Stock Symbol';
+
       } catch(err){
-        document.getElementById("userInputBox").placeholder = err;
+        setTimeout(function(){
+          document.getElementById("userInputBox").placeholder = 'Enter Stock Symbol';
+        }, 2500)
       }
 }
 

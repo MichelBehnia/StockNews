@@ -24,4 +24,3 @@ function displayNewsFeed(){
                 console.log(error);
             })
 }
-
