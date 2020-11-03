@@ -3,6 +3,7 @@ function searchStockInfo(){
     let apiKey = '2cc11b6f558b90e7e81d410711573cc9';
     let apiCall =`https://financialmodelingprep.com/api/v3/quote/${userInput}?apikey=${apiKey}`;
 
+    
       try{
 
         fetch(apiCall)
