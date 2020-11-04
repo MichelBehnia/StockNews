@@ -22,9 +22,11 @@
 
 </head>
 
-<body onload = "displayStockInfo()">
+<body onload = "onLoadToDo()">
+
+
   <div class="tab">
-    <button class="tablinks" onclick="fetchStockInfo()">GOLD</button>
+    <button class="tablinks" onclick="fetchCommodities()">GOLD</button>
     <button class="tablinks" onclick="fetchStockInfo()">SILVER</button>
     <button class="tablinks" onclick="fetchStockInfo()">CRUDE OIL</button>
     <button class="tablinks" onclick="fetchStockInfo()">NASDAQ</button>
@@ -103,31 +105,7 @@
   </tr>
 </table>
 
-  <table id=currencyInformation>
-    <tr>
-      <th id="currencyName"></th>
-    </tr>
 
-    <tr>
-      <th id="exchangeRate"></th>
-    </tr>
-
-    <tr>
-      <th id="lastRefreshed"></th>
-    </tr>
-
-    <tr>
-      <th id="timeZone"></th>
-    </tr>
-
-    <tr>
-      <th id="bidPrice"></th>
-    </tr>
-
-    <tr>
-      <th id="askPrice"></th>
-    </tr>
-  </table>
 
   <table id=mutualFundInformation>
     <tr>
@@ -154,33 +132,119 @@
       <th id="changePercentage2"></th>
     </tr>
   </table>
+  <table id=cryptoInformation>
+    <tr>
+      <th id="cryptoSymbol"></th>
+    </tr>
+ 
+    <tr>
+      <th id="cryptoPrice"></th>
+    </tr>
+ 
+    <tr>
+      <th id="cryptoChange"></th>
+    </tr>
+ 
+    <tr>
+      <th id="cryptoPriceAvg50"></th>
+    </tr>
+ 
+    <tr>
+      <th id="cryptoPriceAvg200"></th>
+    </tr>
+ 
+    <tr>
+      <th id="cryptoChangePercentage"></th>
+    </tr>
+  </table>
+ 
+
+ 
+  <table id=commoditiesInformation>
+ 
+    <tr>
+      <th id="commoditySymbol"></th>
+    </tr>
+ 
+    <tr>
+      <th id="commodityPrice"></th>
+    </tr>
+ 
+    <tr>
+      <th id="commodityChange"></th>
+    </tr>
+ 
+    <tr>
+      <th id="commodityPriceAvg50"></th>
+    </tr>
+ 
+    <tr>
+      <th id="commodityPriceAvg200"></th>
+    </tr>
+ 
+    <tr>
+      <th id="commodityChangePercentage"></th>
+    </tr>
+  </table>
+  
+  <table id=indexesInformation>
+    <tr>
+      <th id="indexName"></th>
+    </tr>
+ 
+    <tr>
+      <th id="indexPrice"></th>
+    </tr>
+ 
+    <tr>
+      <th id="indexChance"></th>
+    </tr>
+ 
+    <tr>
+      <th id="indexPriceAvg50"></th>
+    </tr>
+ 
+    <tr>
+      <th id="indexPriceAvg200"></th>
+    </tr>
+ 
+    <tr>
+      <th id="indexChangePercentage"></th>
+    </tr>
+  </table>
 
   <div class="center">
     <table style="float: left; width:30%; margin-top: 0;" cellspacing="0" cellpadding="0">
       <tr style="background-color: #064551;" onmouseover="ChangeColor2(this, true);"
         onmouseout="ChangeColor2(this, false);" onclick="fetchExchangeRate()">
-        <td class="centerText" height="200px">Currencies</td>
+        <td colspan = '2' class="centerText" height="200px" width = '100%'>Crypto Currencies</td>
       </tr>
-      <tr style = 'background-color: #0E2131;' onmouseover="ChangeColor(this, true);" onmouseout="ChangeColor(this, false);" onclick="fetchExchangeRate()">
-        <td height="36px"><strong>USD/EUR</strong></td>
+      <tr style = 'background-color: #0E2131;' onmouseover="ChangeColor(this, true);" onmouseout="ChangeColor(this, false);" onclick="fetchExchangeRate('ETHUSD')">
+        <td id = 'CC1' height="36px" width = '50%'></td>
+        <td id = 'CC1Price' height="36px" width = '50%' style = "text-align: center;"></td>
       </tr>
       <tr style="background-color: #064551;" onmouseover="ChangeColor2(this, true);"
-        onmouseout="ChangeColor2(this, false);" onclick="fetchExchangeRate()">
-        <td height="36px"><strong>USD/JPY</strong></td>
+        onmouseout="ChangeColor2(this, false);" onclick="fetchExchangeRate('XRPUSD')">
+        <td id = 'CC2' height="36px" width = '50%'></td>
+        <td id = 'CC2Price' height="36px" width = '50%' style = "text-align: center;"></td>
       </tr>
-      <tr style = 'background-color: #0E2131;' onmouseover="ChangeColor(this, true);" onmouseout="ChangeColor(this, false);" onclick="fetchExchangeRate()">
-        <td height="36px"><strong>USD/GBP</strong></td>
+      <tr style = 'background-color: #0E2131;' onmouseover="ChangeColor(this, true);" onmouseout="ChangeColor(this, false);" onclick="fetchExchangeRate('LTCUSD')">
+        <td id = 'CC3' height="36px" width = '50%'></td>
+        <td id = 'CC3Price' height="36px" width = '50%' style = "text-align: center;"></td>
       </tr>
       <tr  style="background-color: #064551;" onmouseover="ChangeColor2(this, true);"
-        onmouseout="ChangeColor2(this, false);" onclick="fetchExchangeRate()">
-        <td height="36px"><strong>USD/AUD</strong></td>
+        onmouseout="ChangeColor2(this, false);" onclick="fetchExchangeRate('USDTUSD')">
+        <td id = 'CC4' height="36px" width = '50%'></td>
+        <td id = 'CC4Price' height="36px" width = '50%' style = "text-align: center;"></td>
       </tr>
-      <tr style = 'background-color: #0E2131;' onmouseover="ChangeColor(this, true);" onmouseout="ChangeColor(this, false);" onclick="fetchExchangeRate()">
-        <td height="36px"><strong>USD/CAD</strong></td>
+      <tr style = 'background-color: #0E2131;' onmouseover="ChangeColor(this, true);" onmouseout="ChangeColor(this, false);" onclick="fetchExchangeRate('BCHUSD')">
+        <td id = 'CC5' height="36px" width = '50%'></td>
+        <td id = 'CC5Price' height="36px" width = '50%' style = "text-align: center;"></td>
       </tr>
       <tr style="background-color: #064551;" onmouseover="ChangeColor2(this, true);"
-        onmouseout="ChangeColor2(this, false);" onclick="fetchExchangeRate()">
-        <td height="36px"><strong>USD/CHF</strong></td>
+        onmouseout="ChangeColor2(this, false);" onclick="fetchExchangeRate('TAASUSD')">
+        <td id = 'CC6' height="36px" width = '50%'></td>
+        <td id = 'CC6Price' height="36px" width = '50%' style = "text-align: center;"></td>
       </tr>
     </table>
 
@@ -221,28 +285,34 @@
     <table style="float: left; width:30%; margin-top: 0;" cellspacing="0" cellpadding="0">
       <tr style="background-color: #064551;" onmouseover="ChangeColor2(this, true);"
         onmouseout="ChangeColor2(this, false);" onclick="fetchStockInfo()">
-        <td class="centerText" height="200px">Bonds</td>
+        <td colspan = '2' class="centerText" height="200px" width = '100%'>Bonds</td>
       </tr>
-      <tr style = 'background-color: #0E2131;' onmouseover="ChangeColor(this, true);" onmouseout="ChangeColor(this, false);" onclick="fetchMutualFunds()">
-        <td height="36px"><strong>VFIAX</strong></td>
-      </tr>
-      <tr style="background-color: #064551;" onmouseover="ChangeColor2(this, true);"
-        onmouseout="ChangeColor2(this, false);" onclick="fetchMutualFunds()">
-        <td height="36px"><strong>SPY</strong></td>
-      </tr>
-      <tr style = 'background-color: #0E2131;' onmouseover="ChangeColor(this, true);" onmouseout="ChangeColor(this, false);" onclick="fetchMutualFunds()">
-        <td height="36px"><strong>FXAIX</strong></td>
+      <tr style = 'background-color: #0E2131;' onmouseover="ChangeColor(this, true);" onmouseout="ChangeColor(this, false);" onclick="fetchMutualFunds('VFIAX')">
+        <td id = 'MF1' height="36px" width = '50%'></td>
+        <td id = 'MF1Price' height="36px" width = '50%' style = "text-align: center;"></td>
       </tr>
       <tr style="background-color: #064551;" onmouseover="ChangeColor2(this, true);"
-        onmouseout="ChangeColor2(this, false);" onclick="fetchMutualFunds()">
-        <td height="36px"><strong>VTSAX</strong></td>
+        onmouseout="ChangeColor2(this, false);" onclick="fetchMutualFunds('SPY')">
+        <td id = 'MF2' height="36px" width = '50%'></td>
+        <td id = 'MF2Price' height="36px" width = '50%' style = "text-align: center;"></td>
       </tr>
-      <tr style = 'background-color: #0E2131;' onmouseover="ChangeColor(this, true);" onmouseout="ChangeColor(this, false);" onclick="fetchMutualFunds()">
-        <td height="36px"><strong>IVV</strong></td>
+      <tr style = 'background-color: #0E2131;' onmouseover="ChangeColor(this, true);" onmouseout="ChangeColor(this, false);" onclick="fetchMutualFunds('VTI')">
+        <td id = 'MF3' height="36px" width = '50%'></td>
+        <td id = 'MF3Price' height="36px" width = '50%' style = "text-align: center;"></td>
       </tr>
       <tr style="background-color: #064551;" onmouseover="ChangeColor2(this, true);"
-        onmouseout="ChangeColor2(this, false);" onclick="fetchMutualFunds()">
-        <td height="36px"><strong>FDRXX</strong></td>
+        onmouseout="ChangeColor2(this, false);" onclick="fetchMutualFunds('VTSAX')">
+        <td id = 'MF4' height="36px" width = '50%'></td>
+        <td id = 'MF4Price' height="36px" width = '50%' style = "text-align: center;"></td>
+      </tr>
+      <tr style = 'background-color: #0E2131;' onmouseover="ChangeColor(this, true);" onmouseout="ChangeColor(this, false);" onclick="fetchMutualFunds('IVV')">
+        <td id = 'MF5' height="36px" width = '50%'></td>
+        <td id = 'MF5Price' height="36px" width = '50%' style = "text-align: center;"></td>
+      </tr>
+      <tr style="background-color: #064551;" onmouseover="ChangeColor2(this, true);"
+        onmouseout="ChangeColor2(this, false);" onclick="fetchMutualFunds('QQQ')">
+        <td id = 'MF6' height="36px" width = '50%'></td>
+        <td id = 'MF6Price' height="36px" width = '50%' style = "text-align: center;"></td>
       </tr>
 
     </table>
