@@ -1,4 +1,4 @@
-function searchStockInfo(){
+function searchInfo(){
     let userInput = document.getElementById('userInputBox').value;
     let apiKey = '2cc11b6f558b90e7e81d410711573cc9';
     let apiCall =`https://financialmodelingprep.com/api/v3/quote/${userInput}?apikey=${apiKey}`;
@@ -78,7 +78,7 @@ function fadeIn(){
   } , 2000)
 }
 
-function searchStockRating(){
+function searchRating(){
   let userInput = document.getElementById('userInputBox').value;
   let apiKey = '2cc11b6f558b90e7e81d410711573cc9';
   const apiCall = `https://financialmodelingprep.com/api/v3/rating/${userInput}?apikey=${apiKey}`;
@@ -145,9 +145,9 @@ function fetchStockRating(stockSymbol){
     })
 }
 
-function fetchStockInfo(stockSymbol) {
+function fetchInfo(symbol) {
     let apiKey = '2cc11b6f558b90e7e81d410711573cc9';
-    let apiCall = `https://financialmodelingprep.com/api/v3/quote/${stockSymbol}?apikey=${apiKey}`;
+    let apiCall = `https://financialmodelingprep.com/api/v3/quote/${symbol}?apikey=${apiKey}`;
 
     fetch(apiCall)
       .then(
@@ -333,35 +333,6 @@ function fetchStockInfo(stockSymbol) {
           }
       })
   }
-
-  // function fetchMutualFunds() {
-  //   let apiKey = '2cc11b6f558b90e7e81d410711573cc9';
-  //   let apiCall = `https://financialmodelingprep.com/api/v3/quote/VFIAX?apikey=${apiKey}`;
-
-  //   fetch(apiCall)
-  //     .then(
-  //       function (response) {
-  //         return response.json();
-  //       }
-  //     )
-  //     .then(
-  //       function(data){
-  //           console.log(data);
-  //           const {name , price , change , priceAvg50, priceAvg200 , changesPercentage} = data[0]
-
-  //           document.getElementById("companyName2").innerHTML = name;
-
-  //           document.getElementById("stockPrice2").innerHTML = '$' + price;
-
-  //           document.getElementById("stockPriceChange2").innerHTML = '$' + change;
-
-  //           document.getElementById("stockPriceAvg502").innerHTML = 'Average Price for past 50 exchanged: $' + priceAvg50;
-
-  //           document.getElementById("stockPriceAvg2002").innerHTML =  'Average Price for past 200 exchanged: $' + priceAvg200;
-
-  //           document.getElementById("changePercentage2").innerHTML = 'Change percentage: ' + changesPercentage;
-  //       })
-  // }
   
   function ChangeColor(tableRow, highLight) {
     if (highLight) {
