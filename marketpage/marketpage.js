@@ -55,6 +55,7 @@ function searchStockInfo(){
             if(data.length === 0) document.getElementById("userInputBox").placeholder = 'Error! Please Enter a Valid Stock Symbol';
 
       } catch(err){
+        console.log('error detected');
         setTimeout(function(){
           document.getElementById("userInputBox").placeholder = 'Enter Stock Symbol';
         }, 2500)
@@ -239,34 +240,128 @@ function fetchStockInfo(stockSymbol) {
       })
   }
 
-  function fetchMutualFunds() {
+  function displayCryptoInfo(){
     let apiKey = '2cc11b6f558b90e7e81d410711573cc9';
-    let apiCall = `https://financialmodelingprep.com/api/v3/quote/VFIAX?apikey=${apiKey}`;
+    let apiCall = `https://financialmodelingprep.com/api/v3/quote/ETHUSD,XRPUSD,LTCUSD,USDTUSD,BCHUSD,TAASUSD?apikey=${apiKey}`;
 
     fetch(apiCall)
-      .then(
-        function (response) {
-          return response.json();
-        }
-      )
-      .then(
-        function(data){
-            console.log(data);
-            const {name , price , change , priceAvg50, priceAvg200 , changesPercentage} = data[0]
+    .then(
+      function (response) {
+        return response.json();
+      }
+    )
+    .then(
+      function(data){
+          console.log(data);
+          for(let i = 0; i < data.length; i++){
+            if(i === 0){
+              document.getElementById('Crypto1').innerHTML = data[i].symbol;
+              document.getElementById('Crypto1Price').innerHTML = '$'+data[i].price;
+            }
 
-            document.getElementById("companyName2").innerHTML = name;
+            if(i === 1){
+              document.getElementById('Crypto2').innerHTML = data[i].symbol;
+              document.getElementById('Crypto2Price').innerHTML = '$'+data[i].price;
+            }
 
-            document.getElementById("stockPrice2").innerHTML = '$' + price;
+            if(i === 2){
+              document.getElementById('Crypto3').innerHTML = data[i].symbol;
+              document.getElementById('Crypto3Price').innerHTML = '$'+data[i].price;
+            }
 
-            document.getElementById("stockPriceChange2").innerHTML = '$' + change;
+            if(i === 3){
+              document.getElementById('Crypto4').innerHTML = data[i].symbol;
+              document.getElementById('Crypto4Price').innerHTML = '$'+data[i].price;
+            }
 
-            document.getElementById("stockPriceAvg502").innerHTML = 'Average Price for past 50 exchanged: $' + priceAvg50;
+            if(i === 4){
+              document.getElementById('Crypto5').innerHTML = data[i].symbol;
+              document.getElementById('Crypto5Price').innerHTML = '$'+data[i].price;
+            }
 
-            document.getElementById("stockPriceAvg2002").innerHTML =  'Average Price for past 200 exchanged: $' + priceAvg200;
-
-            document.getElementById("changePercentage2").innerHTML = 'Change percentage: ' + changesPercentage;
-        })
+            if(i === 5){
+              document.getElementById('Crypto6').innerHTML = data[i].symbol;
+              document.getElementById('Crypto6Price').innerHTML = '$'+data[i].price;
+            }
+          }
+      })
   }
+
+  function displayIndexInfo(){
+    let apiKey = '2cc11b6f558b90e7e81d410711573cc9';
+    let apiCall = `https://financialmodelingprep.com/api/v3/quote/VFIAX,SPY,VTI,VTSAX,IVV,QQQ?apikey=${apiKey}`;
+
+    fetch(apiCall)
+    .then(
+      function (response) {
+        return response.json();
+      }
+    )
+    .then(
+      function(data){
+          console.log(data);
+          for(let i = 0; i < data.length; i++){
+            if(i === 0){
+              document.getElementById('Index1').innerHTML = data[i].symbol;
+              document.getElementById('Index1Price').innerHTML = '$'+data[i].price;
+            }
+
+            if(i === 1){
+              document.getElementById('Index2').innerHTML = data[i].symbol;
+              document.getElementById('Index2Price').innerHTML = '$'+data[i].price;
+            }
+
+            if(i === 2){
+              document.getElementById('Index3').innerHTML = data[i].symbol;
+              document.getElementById('Index3Price').innerHTML = '$'+data[i].price;
+            }
+
+            if(i === 3){
+              document.getElementById('Index4').innerHTML = data[i].symbol;
+              document.getElementById('Index4Price').innerHTML = '$'+data[i].price;
+            }
+
+            if(i === 4){
+              document.getElementById('Index5').innerHTML = data[i].symbol;
+              document.getElementById('Index5Price').innerHTML = '$'+data[i].price;
+            }
+
+            if(i === 5){
+              document.getElementById('Index6').innerHTML = data[i].symbol;
+              document.getElementById('Index6Price').innerHTML = '$'+data[i].price;
+            }
+          }
+      })
+  }
+
+  // function fetchMutualFunds() {
+  //   let apiKey = '2cc11b6f558b90e7e81d410711573cc9';
+  //   let apiCall = `https://financialmodelingprep.com/api/v3/quote/VFIAX?apikey=${apiKey}`;
+
+  //   fetch(apiCall)
+  //     .then(
+  //       function (response) {
+  //         return response.json();
+  //       }
+  //     )
+  //     .then(
+  //       function(data){
+  //           console.log(data);
+  //           const {name , price , change , priceAvg50, priceAvg200 , changesPercentage} = data[0]
+
+  //           document.getElementById("companyName2").innerHTML = name;
+
+  //           document.getElementById("stockPrice2").innerHTML = '$' + price;
+
+  //           document.getElementById("stockPriceChange2").innerHTML = '$' + change;
+
+  //           document.getElementById("stockPriceAvg502").innerHTML = 'Average Price for past 50 exchanged: $' + priceAvg50;
+
+  //           document.getElementById("stockPriceAvg2002").innerHTML =  'Average Price for past 200 exchanged: $' + priceAvg200;
+
+  //           document.getElementById("changePercentage2").innerHTML = 'Change percentage: ' + changesPercentage;
+  //       })
+  // }
   
   function ChangeColor(tableRow, highLight) {
     if (highLight) {
