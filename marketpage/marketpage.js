@@ -48,14 +48,10 @@ function searchInfo(){
 
             })
 
-            if(userInput === '') document.getElementById("userInputBox").placeholder = 'Error! Please Enter a Valid Stock Symbol';
-            
-            if(isNaN(userInput) == false) document.getElementById("userInputBox").placeholder = 'Error! Please Enter a Valid Stock Symbol';
-
-            if(data.length === 0) document.getElementById("userInputBox").placeholder = 'Error! Please Enter a Valid Stock Symbol';
+            if(data[0] === undefined) document.getElementById("companyName").placeholder = 'Error! Please Enter a Valid Stock Symbol';
 
       } catch(err){
-        console.log('error detected');
+        document.getElementById("userInputBox").placeholder = 'Error! Please Enter a Valid Stock Symbol';
         setTimeout(function(){
           document.getElementById("userInputBox").placeholder = 'Enter Stock Symbol';
         }, 2500)
