@@ -82,7 +82,7 @@ h1{
 }
 
 #newsFeed{
-    animation: fadeIn 4s;
+    animation: fadeIn 5s;
 }
 
 @keyframes fadeIn{
