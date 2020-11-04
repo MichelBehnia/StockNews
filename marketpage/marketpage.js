@@ -48,7 +48,7 @@ function searchInfo(){
 
             })
 
-            if(data[0] === undefined) document.getElementById("companyName").placeholder = 'Error! Please Enter a Valid Stock Symbol';
+            if(data[0] === undefined);
 
       } catch(err){
         document.getElementById("userInputBox").placeholder = 'Error! Please Enter a Valid Stock Symbol';
