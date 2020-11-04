@@ -44,65 +44,10 @@ h1{
     border-right: 0;
 }
 
-
-.tab{
-    overflow: hidden;
-    background-color: #0F223D;
-}
-  
-.tab button{
-  background-color: inherit;
-  float: left;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  padding: 30px 3.0%;
-  transition: 0.3s;
-  font-size: 17px;
-  border-right: 1px solid #ccc;
-  border-left: 1px solid #ccc;
-  width:14.2857142857%;
-  height:100px;
-  text-align:center;
-  line-height:1.1em;
-  font-size:1.1em;
-}
-
-.tablinks{
-  font-family: "Montserrat Black";
-  color: white;
-}
-  
-.tab button:hover{
-  background-color: #ddd;
-}
-  
-
-.tab button.active{
-  background-color: #ccc;
-}
-
-.tabcontent{
-  display: none;
-  padding: 6px 12px;
-  -webkit-animation: fadeEffect 1s;
-  animation: fadeEffect 1s;
-}
-
-.main {
-  width: 1800px;
-  min-height: 615px; 
-  margin: 0 auto; 
-  display: flex;
-  justify-content: space-between;
-}
-
 .center{
   display:flex;
   justify-content:center
 }
-
-.container { overflow: hidden; }
 
 .centerText{
   text-align: center;
@@ -131,11 +76,6 @@ h1{
   margin-top: 1%;
   text-align: center;
   font-size: 200%;
-}
-
-#mutualFundInformation{
-  margin: auto;
-  padding-top: 0%;
 }
 
   @-webkit-keyframes fadeEffect{

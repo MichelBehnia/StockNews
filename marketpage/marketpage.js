@@ -66,16 +66,21 @@ function clearUserInput(){
   document.getElementById('userInputBox').value ='';
 }
 
+function clearRating(){
+  document.getElementById('ratingScore').innerHTML ='';
+  document.getElementById('ratingRecommendation').innerHTML ='';
+}
+
 function fadeIn(){
   document.getElementById("stockInformation").style += '-webkit-animation: fadeEffect 2s;' + 'animation: fadeEffect 2s;';
   setTimeout(function(){
     document.getElementById("stockInformation").style -= '-webkit-animation: fadeEffect 2s;' + 'animation: fadeEffect 2s;';
-  } , 2000)
+  } , 1500)
 
   document.getElementById("stockRating").style += '-webkit-animation: fadeEffect 2s;' + 'animation: fadeEffect 2s;';
   setTimeout(function(){
     document.getElementById("stockRating").style -= '-webkit-animation: fadeEffect 2s;' + 'animation: fadeEffect 2s;';
-  } , 2000)
+  } , 1500)
 }
 
 function searchRating(){
@@ -337,18 +342,22 @@ function fetchInfo(symbol) {
   function ChangeColor(tableRow, highLight) {
     if (highLight) {
       tableRow.style.backgroundColor = '#dcfac9';
+      tableRow.style.transition = '0.5s';
     }
     else {
       tableRow.style.backgroundColor = '#0E2131';
+      tableRow.style.transition = '0.5s';
     }
   }
 
   function ChangeColor2(tableRow, highLight) {
     if (highLight) {
       tableRow.style.backgroundColor = '#dcfac9';
+      tableRow.style.transition = '0.5s';
     }
     else {
       tableRow.style.backgroundColor = '#064551';
+      tableRow.style.transition = '0.5s';
     }
   }
 
