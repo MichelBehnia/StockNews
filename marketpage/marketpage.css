@@ -88,10 +88,6 @@ button{
   font-size: 200%;
 }
 
-#fileIO{
-  padding-top: 1%;
-  text-align: center;
-}
 
   @-webkit-keyframes fadeEffect{
     from {opacity: 0;}
