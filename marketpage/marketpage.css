@@ -24,14 +24,24 @@ h1{
     padding-right: 1.5%;
 }
 
+button{
+  text-decoration: none;
+  color: white;
+  background-color:#0A1824;
+  padding: 10px 20px;
+  border: 2px solid #04070a;
+  border-radius: 25px;
+  font-family: "Montserrat Black";
+}
+
 #button{
-    text-decoration: none;
-    color: white;
-    background-color:#0A1824;
-    padding: 10px 20px;
-    border: 2px solid #04070a;
-    border-radius: 25px;
-    font-family: "Montserrat Black";
+  text-decoration: none;
+  color: white;
+  background-color:#0A1824;
+  padding: 10px 20px;
+  border: 2px solid #04070a;
+  border-radius: 25px;
+  font-family: "Montserrat Black";
 }
 
 .header{
