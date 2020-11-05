@@ -24,15 +24,15 @@ function searchInfo(){
 
                 document.getElementById("companyName").innerHTML = name;
 
-                document.getElementById("stockPrice").innerHTML = '$' + price;
+                document.getElementById("stockPrice").innerHTML = 'Price: $' + price;
 
-                document.getElementById("stockPriceChange").innerHTML = '$ ' + change;
+                document.getElementById("stockPriceChange").innerHTML = 'Price Change: $ ' + change;
 
-                document.getElementById("stockPriceAvg200").innerHTML = 'Average Price for past 200 exchanged: $' + priceAvg200;
+                document.getElementById("stockPriceAvg200").innerHTML = 'Average Price For Past 200 Exchanged: $' + priceAvg200;
 
-                document.getElementById("stockDayHigh").innerHTML = 'Todays high: $' + dayHigh;
+                document.getElementById("stockDayHigh").innerHTML = 'Todays High: $' + dayHigh;
 
-                document.getElementById("stockDayLow").innerHTML = 'Todays low: $' + dayLow;
+                document.getElementById("stockDayLow").innerHTML = 'Todays Low: $' + dayLow;
 
                 document.getElementById("volume").innerHTML = 'Volume: ' + volume;
 
@@ -45,6 +45,16 @@ function searchInfo(){
                 document.getElementById("outstandingShares").innerHTML = 'Outstanding Shares: ' + sharesOutstanding;
 
                 document.getElementById("marketCap").innerHTML = 'Market Cap: $' + marketCap;
+
+                document.getElementById("downloadButton").style.display = 'block';
+
+                document.getElementById("downloadButton").addEventListener("click" , function(){
+                  const fs = require('fs');
+
+                  fs.writeFile('Output.txt', data[0] , function(err){
+                    if(err) throw err;
+                  })
+                })
 
             if(change < 0){
               document.getElementById("stockPriceChange").style.color = 'red';
@@ -78,6 +88,8 @@ function fadeIn(){
   setTimeout(function(){
     document.getElementById("stockRating").style -= '-webkit-animation: fadeEffect 2s;' + 'animation: fadeEffect 2s;';
   } , 1500)
+
+  document.getElementById("downloadButton").style += '-webkit-animation: fadeEffect 2s;' + 'animation: fadeEffect 2s;';
 }
 
 function searchRating(){

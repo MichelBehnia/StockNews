@@ -34,6 +34,16 @@ h1{
     font-family: "Montserrat Black";
 }
 
+button{
+  text-decoration: none;
+  color: white;
+  background-color:#0A1824;
+  padding: 10px 20px;
+  border: 2px solid #04070a;
+  border-radius: 25px;
+  font-family: "Montserrat Black";
+}
+
 .header{
     border: 1px solid #ccc;
     background-color: #064551;
@@ -81,6 +91,12 @@ h1{
 #fileIO{
   padding-top: 1%;
   text-align: center;
+}
+
+#downloadButton{
+  margin-left: 48%;
+  margin-bottom: 1%;
+  display: none;
 }
 
   @-webkit-keyframes fadeEffect{
