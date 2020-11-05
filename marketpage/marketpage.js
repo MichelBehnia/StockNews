@@ -1,3 +1,5 @@
+const fs = require('fs');
+
 function searchInfo(){
     let userInput = document.getElementById('userInputBox').value;
     let apiKey = '2cc11b6f558b90e7e81d410711573cc9';
@@ -45,16 +47,6 @@ function searchInfo(){
                 document.getElementById("outstandingShares").innerHTML = 'Outstanding Shares: ' + sharesOutstanding;
 
                 document.getElementById("marketCap").innerHTML = 'Market Cap: $' + marketCap;
-
-                document.getElementById("downloadButton").style.display = 'block';
-
-                document.getElementById("downloadButton").addEventListener("click" , function(){
-                  const fs = require('fs');
-
-                  fs.writeFile('Output.txt', data[0] , function(err){
-                    if(err) throw err;
-                  })
-                })
 
             if(change < 0){
               document.getElementById("stockPriceChange").style.color = 'red';
@@ -347,19 +339,6 @@ function fetchInfo(symbol) {
           }
       })
   }
-  
-// function fileIO() { //work in progress
-//   const input = document.querySelector('input[type = "file"]')
-
-//   input.addEventListener('change', function (e) {
-//     console.log(input.files);
-//     const reader = new FileReader()
-//     reader.onload = function() {
-//       console.log(reader.result)
-//     }
-//     reader.readAsText(input.files[0])
-//   }, false)
-// }
 
   function ChangeColor(tableRow, highLight) {
     if (highLight) {
