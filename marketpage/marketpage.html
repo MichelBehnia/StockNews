@@ -37,19 +37,20 @@
     <button onclick="searchInfo(); searchRating(); fadeIn(); clearUserInput();" id="button">Search</button>
   </div>
 
-    <table id= "stockInformation">
+    <table id= "stockInformation" cellspacing="10" cellpadding="0">
       <tr>
         <th id="companyName"></th>
       </tr>
   
       <tr>
-        <th id="stockPrice"></th>
-      </tr>
-  
-      <tr>
+        <th colspan = "2" id="stockPrice"></th>
         <th id="stockPriceChange"></th>
       </tr>
   
+      <tr>
+        <th id="stockPriceAvg50"></th>
+      </tr>
+
       <tr>
         <th id="stockPriceAvg200"></th>
       </tr>

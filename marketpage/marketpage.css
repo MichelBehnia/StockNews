@@ -63,6 +63,7 @@ button{
   text-align: center;
   vertical-align: top;
 }
+
 #userInputDiv{
   text-align: center;
   margin-top: 3%;
@@ -88,9 +89,21 @@ button{
   font-size: 200%;
 }
 
-#fileIO{
-  padding-top: 1%;
+#stockPriceChange{
+  display: inline-block;
+  margin-left: 0;
+}
+
+#companyName{
   text-align: center;
+  font-size: 225%;
+  border-bottom: 2px solid white;
+  padding-bottom: 1%;
+}
+
+#stockPrice{
+  display: inline-block;
+  margin-left: 0;
 }
 
   @-webkit-keyframes fadeEffect{

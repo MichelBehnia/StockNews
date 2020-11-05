@@ -13,7 +13,7 @@ function displayNewsFeed(){
             .then(
             function(data){
                 console.log(data);
-                for(let i = 0; i < data.length; i++){
+                for(let i = 1; i < data.length; i++){
                     document.getElementById("newsFeed").innerHTML += "<div id = 'newsArticle'><img style='float:left; width: 150px;'src='" + data[i].image + "'><h2>" 
                                                                       + data[i].title + "</h2>" + data[i].site + " - " + data[i].publishedDate + "<br><br>" + data[i].text + 
                                                                       "<br><a href='" + data[i].url + "'target='_blank'>"  + data[i].url + "</a></div>";

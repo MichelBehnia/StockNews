@@ -20,13 +20,15 @@ function searchInfo(){
                   }, 2500)
                 }
 
-                const {name , price , change , priceAvg200, dayHigh , dayLow , earningsAnnouncement , eps , marketCap , volume, avgVolume , sharesOutstanding} = data[0]
+                const {name , price , change , priceAvg200, priceAvg50 , dayHigh , dayLow , earningsAnnouncement , eps , marketCap , volume, avgVolume , sharesOutstanding} = data[0]
 
                 document.getElementById("companyName").innerHTML = name;
 
                 document.getElementById("stockPrice").innerHTML = 'Price: $' + price;
 
                 document.getElementById("stockPriceChange").innerHTML = '$ ' + change;
+
+                document.getElementById("stockPriceAvg50").innerHTML = 'Average Price for past 50 exchanged: $' + priceAvg50;
 
                 document.getElementById("stockPriceAvg200").innerHTML = 'Average Price for past 200 exchanged: $' + priceAvg200;
 
@@ -51,7 +53,8 @@ function searchInfo(){
             }  
             if(change === 0){
               document.getElementById("stockPriceChange").style.color = 'white';
-            } else {
+            } 
+            if(change > 0){
               document.getElementById("stockPriceChange").style.color = 'green';
               document.getElementById("stockPriceChange").innerHTML = '$ +' + change;
             } 
@@ -101,11 +104,11 @@ function searchRating(){
         document.getElementById("ratingRecommendation").innerHTML = ratingRecommendation;
 
         if(ratingRecommendation === 'Strong Buy'){
-          document.getElementById("ratingRecommendation").style.color = '#03fc30'
+          document.getElementById("ratingRecommendation").style.color = '#2ff207'
         }
 
         if(ratingRecommendation === 'Buy'){
-          document.getElementById("ratingRecommendation").style.color = '#93f542'
+          document.getElementById("ratingRecommendation").style.color = '#96e087'
         }
 
         if(ratingRecommendation === 'Neutral'){
@@ -160,13 +163,15 @@ function fetchInfo(symbol) {
       .then(
         function(data){
             console.log(data);
-            const {name , price , change , priceAvg200, dayHigh , dayLow , earningsAnnouncement , eps , marketCap , volume, avgVolume , sharesOutstanding} = data[0]
+            const {name , price , change , priceAvg200, priceAvg50 , dayHigh , dayLow , earningsAnnouncement , eps , marketCap , volume, avgVolume , sharesOutstanding} = data[0]
 
             document.getElementById("companyName").innerHTML = name;
 
             document.getElementById("stockPrice").innerHTML = 'Price: $' + price;
 
             document.getElementById("stockPriceChange").innerHTML = '$ ' + change;
+
+            document.getElementById("stockPriceAvg50").innerHTML = 'Average Price for past 50 exchanged: $' + priceAvg50;
 
             document.getElementById("stockPriceAvg200").innerHTML = 'Average Price for past 200 exchanged: $' + priceAvg200;
 
