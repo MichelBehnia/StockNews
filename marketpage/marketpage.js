@@ -49,7 +49,7 @@ function searchInfo(){
             if(change < 0){
               document.getElementById("stockPriceChange").style.color = 'red';
             }  
-            if(change = 0){
+            if(change === 0){
               document.getElementById("stockPriceChange").style.color = 'white';
             } else {
               document.getElementById("stockPriceChange").style.color = 'green';
