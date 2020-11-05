@@ -43,9 +43,9 @@ h1{
 
 
 #newsArticle{
-    border: 3px solid rgb(43, 42, 42);
+    border: 3px solid rgb(42, 42, 42);
     border-radius: 25px;
-    background-color: black;
+    background-color: rgb(14, 14, 14);
     margin: 3%;
     padding: 1%;   
 }
