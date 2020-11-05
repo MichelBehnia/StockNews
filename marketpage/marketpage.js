@@ -1,5 +1,3 @@
-const fs = require('fs');
-
 function searchInfo(){
     let userInput = document.getElementById('userInputBox').value;
     let apiKey = '2cc11b6f558b90e7e81d410711573cc9';
