@@ -78,8 +78,6 @@ function fadeIn(){
   setTimeout(function(){
     document.getElementById("stockRating").style -= '-webkit-animation: fadeEffect 2s;' + 'animation: fadeEffect 2s;';
   } , 1500)
-
-  document.getElementById("downloadButton").style += '-webkit-animation: fadeEffect 2s;' + 'animation: fadeEffect 2s;';
 }
 
 function searchRating(){

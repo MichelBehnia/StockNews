@@ -93,12 +93,6 @@ button{
   text-align: center;
 }
 
-#downloadButton{
-  margin-left: 48%;
-  margin-bottom: 1%;
-  display: none;
-}
-
   @-webkit-keyframes fadeEffect{
     from {opacity: 0;}
     to {opacity: 1;}
