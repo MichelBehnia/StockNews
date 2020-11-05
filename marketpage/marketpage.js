@@ -24,7 +24,7 @@ function searchInfo(){
 
                 document.getElementById("companyName").innerHTML = name;
 
-                document.getElementById("stockPrice").innerHTML = '$' + price;
+                document.getElementById("stockPrice").innerHTML = 'Price: $' + price;
 
                 document.getElementById("stockPriceChange").innerHTML = '$ ' + change;
 
@@ -164,7 +164,7 @@ function fetchInfo(symbol) {
 
             document.getElementById("companyName").innerHTML = name;
 
-            document.getElementById("stockPrice").innerHTML = '$' + price;
+            document.getElementById("stockPrice").innerHTML = 'Price: $' + price;
 
             document.getElementById("stockPriceChange").innerHTML = '$ ' + change;
 
@@ -335,19 +335,6 @@ function fetchInfo(symbol) {
           }
       })
   }
-  
-// function fileIO() { //work in progress
-//   const input = document.querySelector('input[type = "file"]')
-
-//   input.addEventListener('change', function (e) {
-//     console.log(input.files);
-//     const reader = new FileReader()
-//     reader.onload = function() {
-//       console.log(reader.result)
-//     }
-//     reader.readAsText(input.files[0])
-//   }, false)
-// }
 
   function ChangeColor(tableRow, highLight) {
     if (highLight) {
