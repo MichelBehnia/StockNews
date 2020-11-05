@@ -3,8 +3,6 @@ function searchInfo(){
     let apiKey = '2cc11b6f558b90e7e81d410711573cc9';
     let apiCall =`https://financialmodelingprep.com/api/v3/quote/${userInput}?apikey=${apiKey}`;
 
-      try{
-
         fetch(apiCall)
             .then(
             function(response){
@@ -41,6 +39,9 @@ function searchInfo(){
 
             if(change < 0){
               document.getElementById("stockPriceChange").style.color = 'red';
+            }  
+            if(change = 0){
+              document.getElementById("stockPriceChange").style.color = 'white';
             } else {
               document.getElementById("stockPriceChange").style.color = 'green';
               document.getElementById("stockPriceChange").innerHTML = '$ +' + change;
@@ -48,14 +49,30 @@ function searchInfo(){
 
             })
 
-            if(data[0] === undefined);
+            if(isNaN(userInput) == false){
+              document.getElementById("userInputBox").placeholder = 'Error! Please Enter a Valid Stock Symbol';
+              setTimeout(function(){
+                document.getElementById("userInputBox").placeholder = 'Enter Stock Symbol';
+              }, 2500)
+            }
 
-      } catch(err){
-        document.getElementById("userInputBox").placeholder = 'Error! Please Enter a Valid Stock Symbol';
-        setTimeout(function(){
-          document.getElementById("userInputBox").placeholder = 'Enter Stock Symbol';
-        }, 2500)
-      }
+            if(userInput.length > 5){
+              document.getElementById("userInputBox").placeholder = 'Error! Please Enter a Valid Stock Symbol';
+              setTimeout(function(){
+                document.getElementById("userInputBox").placeholder = 'Enter Stock Symbol';
+              }, 2500)
+            }
+
+            if(userInput === ''){
+              document.getElementById("userInputBox").placeholder = 'Error! Please Enter a Valid Stock Symbol';
+              setTimeout(function(){
+                document.getElementById("userInputBox").placeholder = 'Enter Stock Symbol';
+              }, 2500)
+            }
+
+            if(Array.keys(data).length == 0){
+              console.log('works');
+            }
 }
 
 function clearUserInput(){
@@ -335,18 +352,18 @@ function fetchInfo(symbol) {
       })
   }
   
-function fileIO() { //work in progress
-  const input = document.querySelector('input[type = "file"]')
+// function fileIO() { //work in progress
+//   const input = document.querySelector('input[type = "file"]')
 
-  input.addEventListener('change', function (e) {
-    console.log(input.files);
-    const reader = new FileReader()
-    reader.onload = function() {
-      console.log(reader.result)
-    }
-    reader.readAsText(input.files[0])
-  }, false)
-}
+//   input.addEventListener('change', function (e) {
+//     console.log(input.files);
+//     const reader = new FileReader()
+//     reader.onload = function() {
+//       console.log(reader.result)
+//     }
+//     reader.readAsText(input.files[0])
+//   }, false)
+// }
 
   function ChangeColor(tableRow, highLight) {
     if (highLight) {
