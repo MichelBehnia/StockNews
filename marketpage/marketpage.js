@@ -10,7 +10,16 @@ function searchInfo(){
             })
             .then(
             function(data){
+
                 console.log(data);
+
+                if(Object.keys(data).length === 0){
+                  document.getElementById("userInputBox").placeholder = 'Error! Please Enter a Valid Stock Symbol';
+                  setTimeout(function(){
+                  document.getElementById("userInputBox").placeholder = 'Enter Stock Symbol';
+                  }, 2500)
+                }
+
                 const {name , price , change , priceAvg200, dayHigh , dayLow , earningsAnnouncement , eps , marketCap , volume, avgVolume , sharesOutstanding} = data[0]
 
                 document.getElementById("companyName").innerHTML = name;
@@ -48,31 +57,6 @@ function searchInfo(){
             } 
 
             })
-
-            if(isNaN(userInput) == false){
-              document.getElementById("userInputBox").placeholder = 'Error! Please Enter a Valid Stock Symbol';
-              setTimeout(function(){
-                document.getElementById("userInputBox").placeholder = 'Enter Stock Symbol';
-              }, 2500)
-            }
-
-            if(userInput.length > 5){
-              document.getElementById("userInputBox").placeholder = 'Error! Please Enter a Valid Stock Symbol';
-              setTimeout(function(){
-                document.getElementById("userInputBox").placeholder = 'Enter Stock Symbol';
-              }, 2500)
-            }
-
-            if(userInput === ''){
-              document.getElementById("userInputBox").placeholder = 'Error! Please Enter a Valid Stock Symbol';
-              setTimeout(function(){
-                document.getElementById("userInputBox").placeholder = 'Enter Stock Symbol';
-              }, 2500)
-            }
-
-            if(Array.keys(data).length == 0){
-              console.log('works');
-            }
 }
 
 function clearUserInput(){
