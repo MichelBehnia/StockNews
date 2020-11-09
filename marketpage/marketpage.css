@@ -106,11 +106,7 @@ button{
   margin-left: 0;
 }
 
-.chart-container {
-	width:  80%;
-	height: 480px;
-	margin: 0 auto;
-}
+
 
   @-webkit-keyframes fadeEffect{
     from {opacity: 0;}
