@@ -1,4 +1,6 @@
-var dateArray = [];
+//This is the javascript file used to make all the graphs on the market summary page
+
+var dateArray = []; //Global variables that declar the different arrays used in the functions
 var priceArray = [];
 var dateArray2 = [];
 var priceArray2 = [];
@@ -6,42 +8,40 @@ var dateArray3 = [];
 var priceArray3 = [];
 var dateArrayfetch = [];
 var priceArrayfetch = [];
-$(document).ready(function () {
-	let apiKey = '2cc11b6f558b90e7e81d410711573cc9';
-	let apiCall = `https://financialmodelingprep.com/api/v3/historical-price-full/AAPL?apikey=${apiKey}`;
+$(document).ready(function () { // Shows graph when page is loaded for the stocks table
+	let apiKey = '2cc11b6f558b90e7e81d410711573cc9'; // Our unique API key that allows us to use all of the APIs that Financial Modeling Prep provides
+	let apiCall = `https://financialmodelingprep.com/api/v3/historical-price-full/AAPL?apikey=${apiKey}`; // The URL to the historical price API that gets all info on the stock symbol that the user inputted
 
-	fetch(apiCall)
+	fetch(apiCall) // Fetch info from this API URL
 		.then(
-			function (response) {
-				return response.json();
+			function (response) { // If we get a response then execute this code...
+				return response.json(); // Requests data from the API to be returned in JSON format
 			}
 		)
 		.then(
-			function (data) {
-				console.log(data);
-				console.log("date=" + data['historical'][0]['date'] + " open=" + data['historical'][0]['open']);
-				console.log("array size=" + data['historical'].length);
-				iDataSize = data['historical'].length;
+			function (data) { // Then with the data that we got from the response execute the following code...
+				console.log(data);  // Log all of the data we got from the API call into the console
 
 
 
-				for (i = 0; i < 31; i++) {
-					mydate = data['historical'][i]['date'];
-					openPrice = data['historical'][i]['open'];
-					dateArray.push(mydate);
-					priceArray.push(openPrice);
+
+				for (i = 0; i < 31; i++) { // Repeat 30 times(1 month)
+					mydate = data['historical'][i]['date']; // Set mydate to the current date
+					openPrice = data['historical'][i]['open']; // Set openPrice to the current price
+					dateArray.push(mydate); // Push mydate to the dateArray
+					priceArray.push(openPrice); // Push openPrice to priceArray
 				}
-				dateArray.reverse();
-				priceArray.reverse();
+				dateArray.reverse(); // Reverse the order of the items in the array to make the oldest dates appear first
+				priceArray.reverse(); // Reverse the order of the items in the array to make the oldest prices appear first
 				//get canvas
-				var ctx = $("#line-chartcanvas");
+				var ctx = $("#line-chartcanvas"); // Create canvas
 
-				var data = {
+				var data = { // Data that is used in the graph
 					labels: [],
 					datasets: [
 						{
 							label: "Price($)",
-							data: [10, 50, 25, 70, 40],
+							data: [],
 							backgroundColor: "blue",
 							borderColor: "lightblue",
 							fill: false,
@@ -51,10 +51,10 @@ $(document).ready(function () {
 
 					]
 				};
-				data.labels = dateArray;
-				data.datasets[0].data = priceArray;
+				data.labels = dateArray; //Sets data.labels from the array in the console to dateArray
+				data.datasets[0].data = priceArray; //Sets data.datsets[0].data from the console to priceArray
 
-				var options = {
+				var options = { // Settings of the graph
 					title: {
 						display: true,
 						position: "top",
@@ -69,7 +69,7 @@ $(document).ready(function () {
 
 				};
 
-				var chart = new Chart(ctx, {
+				var chart = new Chart(ctx, { // Sets the graph to a line-graph
 					type: "line",
 					data: data,
 					options: options
@@ -78,7 +78,7 @@ $(document).ready(function () {
 			});
 })
 
-$(document).ready(function () {
+$(document).ready(function () { // Same function as the first on load function except draws graph for the crypto-crruency table
 	let apiKey = '2cc11b6f558b90e7e81d410711573cc9';
 	let apiCall = `https://financialmodelingprep.com/api/v3/historical-price-full/BCHUSD?apikey=${apiKey}`;
 	fetch(apiCall)
@@ -90,9 +90,6 @@ $(document).ready(function () {
 		.then(
 			function (data) {
 				console.log(data);
-				console.log("date=" + data['historical'][0]['date'] + " open=" + data['historical'][0]['open']);
-				console.log("array size=" + data['historical'].length);
-				iDataSize = data['historical'].length;
 
 
 
@@ -112,7 +109,7 @@ $(document).ready(function () {
 					datasets: [
 						{
 							label: "Price($)",
-							data: [10, 50, 25, 70, 40],
+							data: [],
 							backgroundColor: "blue",
 							borderColor: "lightblue",
 							fill: false,
@@ -149,7 +146,7 @@ $(document).ready(function () {
 			});
 })
 
-$(document).ready(function () {
+$(document).ready(function () { // Same function as the other on load functions except draws graph for the indexes table
 	let apiKey = '2cc11b6f558b90e7e81d410711573cc9';
 	let apiCall = `https://financialmodelingprep.com/api/v3/historical-price-full/IVV?apikey=${apiKey}`;
 	fetch(apiCall)
@@ -161,9 +158,7 @@ $(document).ready(function () {
 		.then(
 			function (data) {
 				console.log(data);
-				console.log("date=" + data['historical'][0]['date'] + " open=" + data['historical'][0]['open']);
-				console.log("array size=" + data['historical'].length);
-				iDataSize = data['historical'].length;
+
 
 
 
@@ -183,7 +178,7 @@ $(document).ready(function () {
 					datasets: [
 						{
 							label: "Price($)",
-							data: [10, 50, 25, 70, 40],
+							data: [],
 							backgroundColor: "blue",
 							borderColor: "lightblue",
 							fill: false,
@@ -219,10 +214,10 @@ $(document).ready(function () {
 
 			});
 })
-function fetchGraph(symbol) {
+function fetchGraph(symbol) { // Fetches a graph based on the symbol selected by the user
 
 	let apiKey = '2cc11b6f558b90e7e81d410711573cc9';
-	let apiCall = `https://financialmodelingprep.com/api/v3/historical-price-full/${symbol}?apikey=${apiKey}`;
+	let apiCall = `https://financialmodelingprep.com/api/v3/historical-price-full/${symbol}?apikey=${apiKey}`; // Gets the historical price of a specific stock
 	fetch(apiCall)
 		.then(
 			function (response) {
@@ -232,11 +227,8 @@ function fetchGraph(symbol) {
 		.then(
 			function (data) {
 				console.log(data);
-				console.log("date=" + data['historical'][0]['date'] + " open=" + data['historical'][0]['open']);
-				console.log("array size=" + data['historical'].length);
-				iDataSize = data['historical'].length;
-				dateArrayfetch.length = 0;
-				priceArrayfetch.length = 0;
+				dateArrayfetch.length = 0; // Sets the array length to 0 to delete previous array's data
+				priceArrayfetch.length = 0; //Sets the array length to 0 to delete previous aray's data
 
 
 				for (i = 0; i < 31; i++) {
@@ -255,7 +247,7 @@ function fetchGraph(symbol) {
 					datasets: [
 						{
 							label: "Price($)",
-							data: [10, 50, 25, 70, 40],
+							data: [],
 							backgroundColor: "blue",
 							borderColor: "lightblue",
 							fill: false,
@@ -293,10 +285,10 @@ function fetchGraph(symbol) {
 
 }
 
-function searchGraph() {
+function searchGraph() { // Fetches a graph based on the stock symbol the user inputs
 	let userInput = document.getElementById('userInputBox').value;
 	let apiKey = '2cc11b6f558b90e7e81d410711573cc9';
-	let apiCall = `https://financialmodelingprep.com/api/v3/historical-price-full/${userInput}?apikey=${apiKey}`;
+	let apiCall = `https://financialmodelingprep.com/api/v3/historical-price-full/${userInput}?apikey=${apiKey}`; // Gets the historical price of a specific stock from the user input box
 	fetch(apiCall)
 		.then(
 			function (response) {
@@ -306,9 +298,6 @@ function searchGraph() {
 		.then(
 			function (data) {
 				console.log(data);
-				console.log("date=" + data['historical'][0]['date'] + " open=" + data['historical'][0]['open']);
-				console.log("array size=" + data['historical'].length);
-				iDataSize = data['historical'].length;
 				dateArrayfetch.length = 0;
 				priceArrayfetch.length = 0;
 
@@ -329,7 +318,7 @@ function searchGraph() {
 					datasets: [
 						{
 							label: "Price($)",
-							data: [10, 50, 25, 70, 40],
+							data: [],
 							backgroundColor: "blue",
 							borderColor: "lightblue",
 							fill: false,
@@ -367,9 +356,9 @@ function searchGraph() {
 
 }
 
-function hoverMiddle(symbol) {
+function hoverMiddle(symbol) { // Fetches a graph for the stock table based on whatever the user is hovering over
 	let apiKey = '2cc11b6f558b90e7e81d410711573cc9';
-	let apiCall = `https://financialmodelingprep.com/api/v3/historical-price-full/${symbol}?apikey=${apiKey}`;
+	let apiCall = `https://financialmodelingprep.com/api/v3/historical-price-full/${symbol}?apikey=${apiKey}`; // Gets historical data of the stock the user is currently hovering over
 
 	fetch(apiCall)
 		.then(
@@ -380,9 +369,6 @@ function hoverMiddle(symbol) {
 		.then(
 			function (data) {
 				console.log(data);
-				console.log("date=" + data['historical'][0]['date'] + " open=" + data['historical'][0]['open']);
-				console.log("array size=" + data['historical'].length);
-				iDataSize = data['historical'].length;
 				dateArray.length = 0;
 				priceArray.length = 0;
 
@@ -404,7 +390,7 @@ function hoverMiddle(symbol) {
 					datasets: [
 						{
 							label: "Price($)",
-							data: [10, 50, 25, 70, 40],
+							data: [],
 							backgroundColor: "blue",
 							borderColor: "lightblue",
 							fill: false,
@@ -441,9 +427,9 @@ function hoverMiddle(symbol) {
 			});
 }
 
-function hoverLeft(symbol) {
+function hoverLeft(symbol) { // Fetches a graph for the crypto-currency table based on whatever the user is hovering over
 	let apiKey = '2cc11b6f558b90e7e81d410711573cc9';
-	let apiCall = `https://financialmodelingprep.com/api/v3/historical-price-full/${symbol}?apikey=${apiKey}`;
+	let apiCall = `https://financialmodelingprep.com/api/v3/historical-price-full/${symbol}?apikey=${apiKey}`; // Gets historical data of the crypto-currency the user is currently hovering over
 	fetch(apiCall)
 		.then(
 			function (response) {
@@ -453,9 +439,6 @@ function hoverLeft(symbol) {
 		.then(
 			function (data) {
 				console.log(data);
-				console.log("date=" + data['historical'][0]['date'] + " open=" + data['historical'][0]['open']);
-				console.log("array size=" + data['historical'].length);
-				iDataSize = data['historical'].length;
 				dateArray2.length = 0;
 				priceArray2.length = 0;
 
@@ -477,7 +460,7 @@ function hoverLeft(symbol) {
 					datasets: [
 						{
 							label: "Price($)",
-							data: [10, 50, 25, 70, 40],
+							data: [],
 							backgroundColor: "blue",
 							borderColor: "lightblue",
 							fill: false,
@@ -514,9 +497,9 @@ function hoverLeft(symbol) {
 			});
 }
 
-function hoverRight(symbol) {
+function hoverRight(symbol) { // Fetches a graph for the index table based on whatever the user is hovering over
 	let apiKey = '2cc11b6f558b90e7e81d410711573cc9';
-	let apiCall = `https://financialmodelingprep.com/api/v3/historical-price-full/${symbol}?apikey=${apiKey}`;
+	let apiCall = `https://financialmodelingprep.com/api/v3/historical-price-full/${symbol}?apikey=${apiKey}`; // Gets historical data of the index the user is currently hovering over
 	fetch(apiCall)
 		.then(
 			function (response) {
@@ -526,9 +509,6 @@ function hoverRight(symbol) {
 		.then(
 			function (data) {
 				console.log(data);
-				console.log("date=" + data['historical'][0]['date'] + " open=" + data['historical'][0]['open']);
-				console.log("array size=" + data['historical'].length);
-				iDataSize = data['historical'].length;
 				dateArray3.length = 0;
 				priceArray3.length = 0;
 
@@ -551,7 +531,7 @@ function hoverRight(symbol) {
 					datasets: [
 						{
 							label: "Price($)",
-							data: [10, 50, 25, 70, 40],
+							data: [],
 							backgroundColor: "blue",
 							borderColor: "lightblue",
 							fill: false,
