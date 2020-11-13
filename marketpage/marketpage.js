@@ -1,60 +1,61 @@
 function searchInfo(){
-    let userInput = document.getElementById('userInputBox').value;
-    let apiKey = '2cc11b6f558b90e7e81d410711573cc9';
-    let apiCall =`https://financialmodelingprep.com/api/v3/quote/${userInput}?apikey=${apiKey}`;
 
-        fetch(apiCall)
+    let userInput = document.getElementById('userInputBox').value; // saves the value that the user has entered into the text field to a variable called "userInput"
+    let apiKey = '2cc11b6f558b90e7e81d410711573cc9'; // Our unique API key that allows us to use all of the APIs that Financial Modeling Prep provides
+    let apiCall =`https://financialmodelingprep.com/api/v3/quote/${userInput}?apikey=${apiKey}`; // The URL to the stock quote API that gets all info on the stock symbol that the user inputted
+
+        fetch(apiCall) // Requests data from the API to be returned in JSON format
             .then(
             function(response){
               return response.json();
             })
             .then(
-            function(data){
+            function(data){ // Then with the data that we got from the response execute the following code...
 
-                console.log(data);
+                console.log(data); // Log all of the data we got from the API call into the console
 
-                if(Object.keys(data).length === 0){
-                  document.getElementById("userInputBox").placeholder = 'Error! Please Enter a Valid Stock Symbol';
-                  setTimeout(function(){
+                if(Object.keys(data).length === 0){ // Failsafe that checks to see if the user inputted an invalid stock symbol, because if the user entered an invalid symbol we would get an empty array of objects which would cause this code to be executed
+                  document.getElementById("userInputBox").placeholder = 'Error! Please Enter a Valid Stock Symbol'; // Changes the placeholder to display error message
+                  setTimeout(function(){ // After 2.5 seconds the placeholder changes back to the original placeholder text
                   document.getElementById("userInputBox").placeholder = 'Enter Stock Symbol';
                   }, 2500)
                 }
 
-                const {name , price , change , priceAvg200, priceAvg50 , dayHigh , dayLow , earningsAnnouncement , eps , marketCap , volume, avgVolume , sharesOutstanding} = data[0]
+                const {name , price , change , priceAvg200, priceAvg50 , dayHigh , dayLow , earningsAnnouncement , eps , marketCap , volume, avgVolume , sharesOutstanding} = data[0] // saves all of the values of the key value pairs in the first object in the array into variables
 
-                document.getElementById("companyName").innerHTML = name;
+                document.getElementById("companyName").innerHTML = name; // Fills in the table with the corresonding value from the data we recived from the API
 
-                document.getElementById("stockPrice").innerHTML = 'Price: $' + price;
+                document.getElementById("stockPrice").innerHTML = 'Price: $' + price; // Refer to the previous comment
 
-                document.getElementById("stockPriceChange").innerHTML = '$ ' + change;
+                document.getElementById("stockPriceChange").innerHTML = '$ ' + change; // Refer to the previous comment
 
-                document.getElementById("stockPriceAvg50").innerHTML = 'Average Price for past 50 exchanged: $' + priceAvg50;
+                document.getElementById("stockPriceAvg50").innerHTML = 'Average Price for past 50 exchanged: $' + priceAvg50; // Refer to the previous comment
 
-                document.getElementById("stockPriceAvg200").innerHTML = 'Average Price for past 200 exchanged: $' + priceAvg200;
+                document.getElementById("stockPriceAvg200").innerHTML = 'Average Price for past 200 exchanged: $' + priceAvg200; // Refer to the previous comment
 
-                document.getElementById("stockDayHigh").innerHTML = 'Todays high: $' + dayHigh;
+                document.getElementById("stockDayHigh").innerHTML = 'Todays high: $' + dayHigh; // Refer to the previous comment
 
-                document.getElementById("stockDayLow").innerHTML = 'Todays low: $' + dayLow;
+                document.getElementById("stockDayLow").innerHTML = 'Todays low: $' + dayLow; // Refer to the previous comment
 
-                document.getElementById("volume").innerHTML = 'Volume: ' + volume;
+                document.getElementById("volume").innerHTML = 'Volume: ' + volume; // Refer to the previous comment 
 
-                document.getElementById("avgVolume").innerHTML = 'Daily Average Volume: ' + avgVolume;
+                document.getElementById("avgVolume").innerHTML = 'Daily Average Volume: ' + avgVolume; // Refer to the previous comment
 
-                document.getElementById("earningsAnnouncement").innerHTML = 'Most Recent Earnings Announcement: ' + earningsAnnouncement;
+                document.getElementById("earningsAnnouncement").innerHTML = 'Most Recent Earnings Announcement: ' + earningsAnnouncement; // Refer to the previous comment
 
-                document.getElementById("earningsPerShare").innerHTML = 'Earnings Per Share: ' + eps;
+                document.getElementById("earningsPerShare").innerHTML = 'Earnings Per Share: ' + eps; // Refer to the previous comment 
 
-                document.getElementById("outstandingShares").innerHTML = 'Outstanding Shares: ' + sharesOutstanding;
+                document.getElementById("outstandingShares").innerHTML = 'Outstanding Shares: ' + sharesOutstanding; // Refer to the previous comment
 
-                document.getElementById("marketCap").innerHTML = 'Market Cap: $' + marketCap;
+                document.getElementById("marketCap").innerHTML = 'Market Cap: $' + marketCap; // Refer to the previous comment
 
-            if(change < 0){
+            if(change < 0){ // If the price change of the stock is less than 0 then change the color of it to red
               document.getElementById("stockPriceChange").style.color = 'red';
             }  
-            if(change === 0){
+            if(change === 0){ // If the price change of the stock is equal to 0 then change the color of it to white
               document.getElementById("stockPriceChange").style.color = 'white';
             } 
-            if(change > 0){
+            if(change > 0){ // If the price change of the stock is greater than 0 then change the color of it to green and show a plus sign next to it
               document.getElementById("stockPriceChange").style.color = 'green';
               document.getElementById("stockPriceChange").innerHTML = '$ +' + change;
             } 
@@ -62,21 +63,21 @@ function searchInfo(){
             })
 }
 
-function clearUserInput(){
+function clearUserInput(){ // Clears the users input
   document.getElementById('userInputBox').value ='';
 }
 
-function clearRating(){
+function clearRating(){ // Clears the stock rating table
   document.getElementById('ratingScore').innerHTML ='';
   document.getElementById('ratingRecommendation').innerHTML ='';
 }
 
-function clearInfoTables(){
+function hideInfoTables(){ // Hides the stock information table
   document.getElementById("stockInformation").style.display = "none";
   document.getElementById("stockRating").style.display = "none";
 }
 
-function fadeIn(){
+function fadeIn(){ // Adds the fade animation to the stockInformation table and the stockRating table
   document.getElementById("stockInformation").style += '-webkit-animation: fadeEffect 2s;' + 'animation: fadeEffect 2s;';
   setTimeout(function(){
     document.getElementById("stockInformation").style -= '-webkit-animation: fadeEffect 2s;' + 'animation: fadeEffect 2s;';
@@ -88,19 +89,19 @@ function fadeIn(){
   } , 1500)
 }
 
-function searchRating(){
+function searchRating(){ // This function is the same idea as the previous function except its in getting data from the stock rating API by way of user input
   let userInput = document.getElementById('userInputBox').value;
   let apiKey = '2cc11b6f558b90e7e81d410711573cc9';
   const apiCall = `https://financialmodelingprep.com/api/v3/rating/${userInput}?apikey=${apiKey}`;
 
-  fetch(apiCall)
+  fetch(apiCall) 
   .then(
     function (response) {
       return response.json();
     }
   )
   .then(
-    function(data){
+    function(data){ 
         console.log(data);
         const {ratingScore , ratingRecommendation} = data[0]
 
@@ -122,7 +123,7 @@ function searchRating(){
     })
 }
 
-function fetchStockRating(stockSymbol){
+function fetchStockRating(stockSymbol){ // This function is the same idea as the previous function except its in getting data from the stock rating API by getting a stock symbol passed as an argument
   let apiKey = '2cc11b6f558b90e7e81d410711573cc9';
   const apiCall = `https://financialmodelingprep.com/api/v3/rating/${stockSymbol}?apikey=${apiKey}`;
 
@@ -155,7 +156,7 @@ function fetchStockRating(stockSymbol){
     })
 }
 
-function fetchInfo(symbol) {
+function fetchInfo(symbol) { // This function is the same as the previous function but it gets stock info based on the value being passed into it as an argument
     let apiKey = '2cc11b6f558b90e7e81d410711573cc9';
     let apiCall = `https://financialmodelingprep.com/api/v3/quote/${symbol}?apikey=${apiKey}`;
 
@@ -217,9 +218,11 @@ function fetchInfo(symbol) {
     )
     .then(
       function(data){
+
           console.log(data);
-          for(let i = 0; i < data.length; i++){
-            if(i === 0){
+
+          for(let i = 0; i < data.length; i++){ // For loop that goes through the all of the objects in the array of data with if statements to fill in the table with the corresponding data
+            if(i === 0){ 
               document.getElementById('Stock1').innerHTML = data[i].symbol;
               document.getElementById('Stock1Price').innerHTML = '$'+data[i].price;
             }
@@ -265,7 +268,7 @@ function fetchInfo(symbol) {
     .then(
       function(data){
           console.log(data);
-          for(let i = 0; i < data.length; i++){
+          for(let i = 0; i < data.length; i++){ // For loop that goes through the all of the objects in the array of data with if statements to fill in the table with the corresponding data
             if(i === 0){
               document.getElementById('Crypto1').innerHTML = data[i].symbol;
               document.getElementById('Crypto1Price').innerHTML = '$'+data[i].price;
@@ -299,7 +302,7 @@ function fetchInfo(symbol) {
       })
   }
 
-  function displayIndexInfo(){
+  function displayIndexInfo(){ 
     let apiKey = '2cc11b6f558b90e7e81d410711573cc9';
     let apiCall = `https://financialmodelingprep.com/api/v3/quote/VFIAX,SPY,VTI,VTSAX,IVV,QQQ?apikey=${apiKey}`;
 
@@ -312,7 +315,7 @@ function fetchInfo(symbol) {
     .then(
       function(data){
           console.log(data);
-          for(let i = 0; i < data.length; i++){
+          for(let i = 0; i < data.length; i++){ // For loop that goes through the all of the objects in the array of data with if statements to fill in the table with the corresponding data
             if(i === 0){
               document.getElementById('Index1').innerHTML = data[i].symbol;
               document.getElementById('Index1Price').innerHTML = '$'+data[i].price;
@@ -346,7 +349,7 @@ function fetchInfo(symbol) {
       })
   }
 
-  function ChangeColor(tableRow, highLight) {
+  function ChangeColor(tableRow, highLight) { // If cursor is hovering over this element change color
     if (highLight) {
       tableRow.style.backgroundColor = '#dcfac9';
       tableRow.style.transition = '0.5s';
@@ -357,7 +360,7 @@ function fetchInfo(symbol) {
     }
   }
 
-  function ChangeColor2(tableRow, highLight) {
+  function ChangeColor2(tableRow, highLight) { // If cursor is hovering over this element change color 
     if (highLight) {
       tableRow.style.backgroundColor = '#dcfac9';
       tableRow.style.transition = '0.5s';
