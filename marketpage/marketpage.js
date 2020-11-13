@@ -71,6 +71,11 @@ function clearRating(){
   document.getElementById('ratingRecommendation').innerHTML ='';
 }
 
+function clearInfoTables(){
+  document.getElementById("stockInformation").style.display = "none";
+  document.getElementById("stockRating").style.display = "none";
+}
+
 function fadeIn(){
   document.getElementById("stockInformation").style += '-webkit-animation: fadeEffect 2s;' + 'animation: fadeEffect 2s;';
   setTimeout(function(){
