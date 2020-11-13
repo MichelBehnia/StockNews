@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<link rel="stylesheet" type="text/css" href="newspage.css">
+<link rel="stylesheet" type="text/css" href="newspage.css"> <!-- Linking the CSS file to the HTML file that way we can style our HTML elements -->
 
     <head>
         <title>Stock News</title>
-        <script type="text/javascript" src = "newspage.js"></script>
+        <script type="text/javascript" src = "newspage.js"></script> <!-- Linking the JavaScript file to the HTML file that way we can add behavior etc. to our HTML elements -->
     </head>
 
-    <body onload = "displayNewsFeed();">
-        <a href="../index/index.html">
+    <body onload = "displayNewsFeed();"> <!-- Execute this function when the page loads -->
+        <a href="../index/index.html"> <!-- Anchored link which is essentially a button that lets you navigate back to the index page -->
             <h1>Stock News</h1>
             <img class="logo" src="logo.png" alt="Logo">
         </a>
 
         <div class="buttonDiv">
-            <a id="button" href="../marketpage/marketpage.html">Market Summary</a>
+            <a id="button" href="../marketpage/marketpage.html">Market Summary</a> <!-- Anchored link which is essentially a button that directs you to the market summary page -->
         </div>
 
-        <div id = "newsFeed"></div>    
+        <div id = "newsFeed"></div> <!-- The newsFeed div which gets filled in with all the news articles we get from the stock news API -->    
     </body>
 </html>

@@ -4,10 +4,10 @@ function searchInfo(){
     let apiKey = '2cc11b6f558b90e7e81d410711573cc9'; // Our unique API key that allows us to use all of the APIs that Financial Modeling Prep provides
     let apiCall =`https://financialmodelingprep.com/api/v3/quote/${userInput}?apikey=${apiKey}`; // The URL to the stock quote API that gets all info on the stock symbol that the user inputted
 
-        fetch(apiCall) // Requests data from the API to be returned in JSON format
+        fetch(apiCall) // Fetch info from this API URL
             .then(
-            function(response){
-              return response.json();
+            function(response){ // If we get a response then execute this code...
+              return response.json(); // Requests data from the API to be returned in JSON format
             })
             .then(
             function(data){ // Then with the data that we got from the response execute the following code...
@@ -21,9 +21,9 @@ function searchInfo(){
                   }, 2500)
                 }
 
-                const {name , price , change , priceAvg200, priceAvg50 , dayHigh , dayLow , earningsAnnouncement , eps , marketCap , volume, avgVolume , sharesOutstanding} = data[0] // saves all of the values of the key value pairs in the first object in the array into variables
+                const {name , price , change , priceAvg200, priceAvg50 , dayHigh , dayLow , earningsAnnouncement , eps , marketCap , volume, avgVolume , sharesOutstanding} = data[0] // saves these particular values from the key value pairs in the first object in the array into variables
 
-                document.getElementById("companyName").innerHTML = name; // Fills in the table with the corresonding value from the data we recived from the API
+                document.getElementById("companyName").innerHTML = name; // Fills in the table with the corresponding value from the data recived from the API
 
                 document.getElementById("stockPrice").innerHTML = 'Price: $' + price; // Refer to the previous comment
 
@@ -89,10 +89,10 @@ function fadeIn(){ // Adds the fade animation to the stockInformation table and 
   } , 1500)
 }
 
-function searchRating(){ // This function is the same idea as the previous function except its in getting data from the stock rating API by way of user input
+function searchStockRating(){
   let userInput = document.getElementById('userInputBox').value;
   let apiKey = '2cc11b6f558b90e7e81d410711573cc9';
-  const apiCall = `https://financialmodelingprep.com/api/v3/rating/${userInput}?apikey=${apiKey}`;
+  const apiCall = `https://financialmodelingprep.com/api/v3/rating/${userInput}?apikey=${apiKey}`; // The URL to the stock rating API that gets all info on the stock symbol that the user inputted
 
   fetch(apiCall) 
   .then(
@@ -103,27 +103,27 @@ function searchRating(){ // This function is the same idea as the previous funct
   .then(
     function(data){ 
         console.log(data);
-        const {ratingScore , ratingRecommendation} = data[0]
+        const {ratingScore , ratingRecommendation} = data[0] // saves these two values from the key value pairs in the first object in the array into variables
 
-        document.getElementById("ratingScore").innerHTML = 'Overall Stock Rating: ' + ratingScore + '/5';
+        document.getElementById("ratingScore").innerHTML = 'Overall Stock Rating: ' + ratingScore + '/5'; // Fills in the table with the corresponding value from the data recived from the API
 
-        document.getElementById("ratingRecommendation").innerHTML = ratingRecommendation;
+        document.getElementById("ratingRecommendation").innerHTML = ratingRecommendation; // Refer to previous comment
 
-        if(ratingRecommendation === 'Strong Buy'){
+        if(ratingRecommendation === 'Strong Buy'){ // If the rating reccomendation value is equal to "Strong Buy" then change the color of the text to a bright green
           document.getElementById("ratingRecommendation").style.color = '#2ff207'
         }
 
-        if(ratingRecommendation === 'Buy'){
+        if(ratingRecommendation === 'Buy'){ // If the rating reccomendation value is equal to "Buy" then change the color of the text to a subtle green
           document.getElementById("ratingRecommendation").style.color = '#96e087'
         }
 
-        if(ratingRecommendation === 'Neutral'){
+        if(ratingRecommendation === 'Neutral'){ // If the rating reccomendation value is equal to "neutral" then change the color of the text to a subtle yellow
           document.getElementById("ratingRecommendation").style.color = '#f2f542'
         }
     })
 }
 
-function fetchStockRating(stockSymbol){ // This function is the same idea as the previous function except its in getting data from the stock rating API by getting a stock symbol passed as an argument
+function fetchStockRating(stockSymbol){ // This function is the same thing as the "searchStockRating" function except instead of getting the user's input it gets a stock symbol passed in a as an argument
   let apiKey = '2cc11b6f558b90e7e81d410711573cc9';
   const apiCall = `https://financialmodelingprep.com/api/v3/rating/${stockSymbol}?apikey=${apiKey}`;
 
@@ -156,7 +156,7 @@ function fetchStockRating(stockSymbol){ // This function is the same idea as the
     })
 }
 
-function fetchInfo(symbol) { // This function is the same as the previous function but it gets stock info based on the value being passed into it as an argument
+function fetchInfo(symbol) { // This function is the same as the "searchInfo" function but it gets stock info on the value being passed into it as an argument
     let apiKey = '2cc11b6f558b90e7e81d410711573cc9';
     let apiCall = `https://financialmodelingprep.com/api/v3/quote/${symbol}?apikey=${apiKey}`;
 
@@ -208,7 +208,7 @@ function fetchInfo(symbol) { // This function is the same as the previous functi
 
   function displayStockInfo(){
     let apiKey = '2cc11b6f558b90e7e81d410711573cc9';
-    let apiCall = `https://financialmodelingprep.com/api/v3/quote/MSFT,AAPL,AMZN,GOOGL,FB,JNJ?apikey=${apiKey}`;
+    let apiCall = `https://financialmodelingprep.com/api/v3/quote/MSFT,AAPL,AMZN,GOOGL,FB,JNJ?apikey=${apiKey}`; // Gets information on these particular stocks from the stock quote API to be featured on the interactive stock table
 
     fetch(apiCall)
     .then(
@@ -221,33 +221,33 @@ function fetchInfo(symbol) { // This function is the same as the previous functi
 
           console.log(data);
 
-          for(let i = 0; i < data.length; i++){ // For loop that goes through the all of the objects in the array of data with if statements to fill in the table with the corresponding data
-            if(i === 0){ 
+          for(let i = 0; i < data.length; i++){ // For loop that goes through the all of the objects in the array of data with if statements to fill in the interactive stock table with the corresponding data
+            if(i === 0){ // If i is equal to 0 then get fill in the interactive table with data from the object in the array that has an index value of 0
               document.getElementById('Stock1').innerHTML = data[i].symbol;
               document.getElementById('Stock1Price').innerHTML = '$'+data[i].price;
             }
 
-            if(i === 1){
+            if(i === 1){ // If i is equal to 1 then get fill in the interactive table with data from the object in the array that has an index value of 1
               document.getElementById('Stock2').innerHTML = data[i].symbol;
               document.getElementById('Stock2Price').innerHTML = '$'+data[i].price;
             }
 
-            if(i === 2){
+            if(i === 2){ // If i is equal to 2 then get fill in the interactive table with data from the object in the array that has an index value of 2
               document.getElementById('Stock3').innerHTML = data[i].symbol;
               document.getElementById('Stock3Price').innerHTML = '$'+data[i].price;
             }
 
-            if(i === 3){
+            if(i === 3){ // If i is equal to 3 then get fill in the interactive table with data from the object in the array that has an index value of 3
               document.getElementById('Stock4').innerHTML = data[i].symbol;
               document.getElementById('Stock4Price').innerHTML = '$'+data[i].price;
             }
 
-            if(i === 4){
+            if(i === 4){ // If i is equal to 4 then get fill in the interactive table with data from the object in the array that has an index value of 4
               document.getElementById('Stock5').innerHTML = data[i].symbol;
               document.getElementById('Stock5Price').innerHTML = '$'+data[i].price;
             }
 
-            if(i === 5){
+            if(i === 5){ // If i is equal to 5 then get fill in the interactive table with data from the object in the array that has an index value of 5
               document.getElementById('Stock6').innerHTML = data[i].symbol;
               document.getElementById('Stock6Price').innerHTML = '$'+data[i].price;
             }
@@ -255,7 +255,7 @@ function fetchInfo(symbol) { // This function is the same as the previous functi
       })
   }
 
-  function displayCryptoInfo(){
+  function displayCryptoInfo(){ // This function is the same as the "displayStockInfo" function except this fills out the crypto currency interactive table with featured crypto currencies
     let apiKey = '2cc11b6f558b90e7e81d410711573cc9';
     let apiCall = `https://financialmodelingprep.com/api/v3/quote/ETHUSD,XRPUSD,LTCUSD,USDTUSD,BCHUSD,TAASUSD?apikey=${apiKey}`;
 
@@ -268,7 +268,7 @@ function fetchInfo(symbol) { // This function is the same as the previous functi
     .then(
       function(data){
           console.log(data);
-          for(let i = 0; i < data.length; i++){ // For loop that goes through the all of the objects in the array of data with if statements to fill in the table with the corresponding data
+          for(let i = 0; i < data.length; i++){
             if(i === 0){
               document.getElementById('Crypto1').innerHTML = data[i].symbol;
               document.getElementById('Crypto1Price').innerHTML = '$'+data[i].price;
@@ -302,7 +302,7 @@ function fetchInfo(symbol) { // This function is the same as the previous functi
       })
   }
 
-  function displayIndexInfo(){ 
+  function displayIndexInfo(){ // This function is the same as the "displayStockInfo" and the "displayCryptoInfo" function except this fills out the Indexs interactive table with featured Indexs
     let apiKey = '2cc11b6f558b90e7e81d410711573cc9';
     let apiCall = `https://financialmodelingprep.com/api/v3/quote/VFIAX,SPY,VTI,VTSAX,IVV,QQQ?apikey=${apiKey}`;
 
@@ -315,7 +315,7 @@ function fetchInfo(symbol) { // This function is the same as the previous functi
     .then(
       function(data){
           console.log(data);
-          for(let i = 0; i < data.length; i++){ // For loop that goes through the all of the objects in the array of data with if statements to fill in the table with the corresponding data
+          for(let i = 0; i < data.length; i++){
             if(i === 0){
               document.getElementById('Index1').innerHTML = data[i].symbol;
               document.getElementById('Index1Price').innerHTML = '$'+data[i].price;
@@ -349,18 +349,18 @@ function fetchInfo(symbol) { // This function is the same as the previous functi
       })
   }
 
-  function ChangeColor(tableRow, highLight) { // If cursor is hovering over this element change color
-    if (highLight) {
+  function ChangeColor(tableRow, highLight) { 
+    if (highLight) { // If cursor is hovering over this element change color
       tableRow.style.backgroundColor = '#dcfac9';
       tableRow.style.transition = '0.5s';
     }
-    else {
+    else { // Otherwise make it this color
       tableRow.style.backgroundColor = '#0E2131';
       tableRow.style.transition = '0.5s';
     }
   }
 
-  function ChangeColor2(tableRow, highLight) { // If cursor is hovering over this element change color 
+  function ChangeColor2(tableRow, highLight) { // This function is the same as the "changeColor" function except it has a different color that defaults back to after being hoverd over
     if (highLight) {
       tableRow.style.backgroundColor = '#dcfac9';
       tableRow.style.transition = '0.5s';
